@@ -1,0 +1,9 @@
+{
+  "name": "MahaSprouts Bengaluru",
+  "short_name": "MahaSprouts",
+  "description": "Daily fresh moong and chana sprout cups, 15-Small-Cup Fitness Pass, and WhatsApp pickup orders in Bengaluru.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#faf6ee",
+  "theme_color": "#2f5d3a"
+}

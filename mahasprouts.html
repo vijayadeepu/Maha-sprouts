@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MahaSprouts Bengaluru — Daily fresh moong and chana sprout bowls, 20-hour natural germination, 15-Small-Cup Fitness Pass, and WhatsApp pickup ordering." />
+  <meta name="theme-color" content="#2f5d3a" />
+  <title>MahaSprouts • Bengaluru — Fresh Daily Sprout Bowls</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    // Configure custom botanical palette and typography for MahaSprouts
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              950: '#132819',
+              900: '#1e3f27',
+              800: '#2f5d3a',
+              700: '#3f784c',
+              600: '#539463',
+              100: '#dceee0',
+              50:  '#f1f8f2',
+            },
+            cream: {
+              50:  '#faf6ee',
+              100: '#f2ece0',
+              200: '#e3dac8',
+            },
+            sage: {
+              100: '#e4efe6',
+              200: '#c6decb',
+              700: '#396845',
+            },
+            citrus: {
+              400: '#facc15',
+              500: '#eab308',
+              600: '#ca8a04',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    /* Base page styling and subtle visual depth */
+    body {
+      background-color: #faf6ee;
+      color: #16291c;
+      font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+    }
+    .mono-num {
+      font-family: "JetBrains Mono", monospace;
+      font-variant-numeric: tabular-nums;
+    }
+    .botanical-hero {
+      background-color: #2f5d3a;
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(220, 238, 224, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(234, 179, 8, 0.14) 0%, transparent 42%);
+    }
+    .botanical-card {
+      background-color: #ffffff;
+      border: 1px solid #e3dac8;
+      box-shadow: 0 8px 24px -10px rgba(30, 63, 39, 0.10);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-forest-100 selection:text-forest-900">
+
+  <!-- Toast Notification Container (Replaces browser alert() cleanly) -->
+  <div id="toast-container" aria-live="polite" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none px-4 sm:px-0"></div>
+
+  <!-- ===================================================================== -->
+  <!-- 1. STICKY TOP NAVIGATION BAR                                          -->
+  <!-- ===================================================================== -->
+  <header class="sticky top-0 z-40 bg-cream-50/95 backdrop-blur-md border-b border-cream-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+      <!-- Brand Logo Mark + MahaSprouts + Bengaluru Badge -->
+      <a href="#" class="flex items-center gap-2.5 group shrink-0">
+        <div class="w-10 h-10 rounded-2xl bg-forest-800 text-forest-50 flex items-center justify-center shadow-sm group-hover:bg-forest-900 transition-colors">
+          <!-- Custom Sprout Emblem SVG -->
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 20h10" />
+            <path d="M12 20v-7" />
+            <path d="M12 13c0-4.5-3.2-7-7-7 0 4.2 2.7 7 7 7z" />
+            <path d="M12 11c0-4 3-6.5 7-6.5 0 3.8-2.6 6.5-7 6.5z" />
+          </svg>
+        </div>
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="font-extrabold text-base sm:text-lg tracking-tight text-forest-950">MahaSprouts</span>
+          <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-sage-100 text-forest-800 border border-sage-200">
+            Bengaluru
+          </span>
+        </div>
+      </a>
+
+      <!-- Smooth-Scroll Navigation Links -->
+      <nav aria-label="Primary Navigation" class="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-semibold text-gray-700">
+        <a href="#about" class="hover:text-forest-800 transition-colors">About</a>
+        <a href="#process-nutrition" class="hover:text-forest-800 transition-colors">Process &amp; Nutrition</a>
+        <a href="#menu-pass" class="hover:text-forest-800 transition-colors">Menu &amp; Pass</a>
+        <a href="#reserve-pickup" class="hover:text-forest-800 transition-colors">Reserve Pickup</a>
+        <a href="#faq" class="hover:text-forest-800 transition-colors">FAQ</a>
+      </nav>
+
+      <!-- Quick 'Order on WhatsApp' CTA & Mobile Menu Toggle -->
+      <div class="flex items-center gap-2">
+        <a id="nav-whatsapp-btn" href="https://wa.me/919800000000" target="_blank" rel="noopener noreferrer" class="px-3.5 sm:px-4 py-2.5 rounded-xl bg-forest-800 hover:bg-forest-900 text-white text-xs sm:text-sm font-bold shadow-sm transition-all inline-flex items-center gap-1.5 whitespace-nowrap">
+          <span>Order on WhatsApp</span>
+          <span id="nav-item-badge" class="hidden mono-num px-1.5 py-0.5 text-[10px] rounded-full bg-citrus-500 text-forest-950 font-extrabold">0</span>
+        </a>
+        <button id="mobile-menu-toggle" type="button" onclick="toggleMobileMenu()" aria-label="Open Navigation Menu" aria-expanded="false" class="md:hidden p-2.5 rounded-xl border border-cream-200 bg-white text-forest-900 hover:bg-cream-100">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav-drawer" class="hidden md:hidden bg-white border-t border-cream-200 px-4 py-3 space-y-1.5 text-sm font-semibold text-gray-700">
+      <a href="#about" onclick="closeMobileMenu()" class="block py-2.5 px-3 rounded-xl hover:bg-forest-50">About</a>
+      <a href="#process-nutrition" onclick="closeMobileMenu()" class="block py-2.5 px-3 rounded-xl hover:bg-forest-50">Process &amp; Nutrition</a>
+      <a href="#menu-pass" onclick="closeMobileMenu()" class="block py-2.5 px-3 rounded-xl hover:bg-forest-50">Menu &amp; Pass</a>
+      <a href="#reserve-pickup" onclick="closeMobileMenu()" class="block py-2.5 px-3 rounded-xl hover:bg-forest-50">Reserve Pickup</a>
+      <a href="#faq" onclick="closeMobileMenu()" class="block py-2.5 px-3 rounded-xl hover:bg-forest-50">FAQ</a>
+    </div>
+  </header>
+
+  <main class="flex-1">
+
+    <!-- ===================================================================== -->
+    <!-- 2. HERO SECTION                                                       -->
+    <!-- ===================================================================== -->
+    <section class="botanical-hero text-white relative overflow-hidden">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- Hero Copy & Trust Badges -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-900/75 border border-forest-100/25 text-forest-100 text-xs font-bold tracking-wide">
+            <span class="w-2 h-2 rounded-full bg-citrus-400"></span>
+            <span>MAHASPROUTS &bull; EVENING STALL PICKUP IN BENGALURU</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15]">
+            Crisp Daily Moong &amp; Chana Sprout Bowls Crafted Fresh in Bengaluru
+          </h1>
+
+          <p class="text-sm sm:text-base text-forest-50/95 leading-relaxed max-w-2xl">
+            Made for fitness lovers, busy Bengaluru professionals, and clean-eating families. Every batch undergoes a <strong class="text-white">20-hour natural germination workflow</strong>—an <strong class="text-white">8–10 hr pure-water soak</strong> followed by <strong class="text-white">~10 hr natural wet-cloth germination</strong>—with <strong class="text-citrus-400">zero added oil or artificial preservatives</strong>, tossed fresh for evening stall pickup.
+          </p>
+
+          <!-- Primary & Secondary CTAs -->
+          <div class="flex flex-wrap items-center gap-3 pt-1">
+            <a href="#reserve-pickup" class="px-6 py-3.5 rounded-2xl bg-citrus-500 hover:bg-citrus-400 text-forest-950 font-extrabold text-sm sm:text-base shadow-lg transition-all">
+              Reserve Evening Pickup &rarr;
+            </a>
+            <a href="#menu-pass" class="px-5 py-3.5 rounded-2xl bg-forest-900/75 hover:bg-forest-950 text-white border border-white/20 font-bold text-sm sm:text-base transition-all">
+              Explore Menu &amp; ₹399 Pass
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+            <div class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-forest-950/55 border border-white/15">
+              <span class="w-7 h-7 rounded-lg bg-sage-100 text-forest-900 flex items-center justify-center font-extrabold text-xs shrink-0">&#10003;</span>
+              <span class="text-xs font-bold text-white">100% Daily Fresh Batch</span>
+            </div>
+            <div class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-forest-950/55 border border-white/15">
+              <span class="w-7 h-7 rounded-lg bg-sage-100 text-forest-900 flex items-center justify-center font-extrabold text-xs shrink-0">&#8377;</span>
+              <span class="text-xs font-bold text-white">UPI &amp; Cash Accepted</span>
+            </div>
+            <div class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-forest-950/55 border border-white/15">
+              <span class="w-7 h-7 rounded-lg bg-citrus-400 text-forest-950 flex items-center justify-center font-extrabold text-xs shrink-0">15</span>
+              <span class="text-xs font-bold text-white">15-Cup Fitness Pass</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Inline SVG Illustration of Fresh Moong & Chana Sprout Bowl -->
+        <div class="lg:col-span-5">
+          <div class="rounded-3xl bg-cream-50 text-forest-950 p-6 sm:p-7 shadow-2xl border border-cream-200">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-sage-100 text-forest-900">
+                Freshly Germinated Daily
+              </span>
+              <span class="text-xs font-bold text-forest-800">Zero Oil &bull; Zero Preservatives</span>
+            </div>
+
+            <div class="my-2 flex justify-center">
+              <svg class="w-64 sm:w-72 h-52" viewBox="0 0 340 230" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a fresh MahaSprouts bowl with sprouted moong and chana, diced cucumber, tomato, onion, lemon wedge, and fresh herbs">
+                <!-- Bowl Shadow -->
+                <ellipse cx="170" cy="204" rx="116" ry="14" fill="#e3dac8" />
+
+                <!-- Sprout & Veggie Top Mound -->
+                <path d="M62 116C68 62 118 42 170 42C222 42 272 62 278 116H62Z" fill="#dceee0" />
+
+                <!-- Green Moong Sprouts -->
+                <circle cx="106" cy="96" r="8" fill="#4d7c0f" />
+                <path d="M106 88C104 79 109 75 113 74" stroke="#ecfccb" stroke-width="2.5" stroke-linecap="round" />
+                <circle cx="152" cy="88" r="7.5" fill="#65a30d" />
+                <path d="M152 80C154 72 160 70 164 71" stroke="#ecfccb" stroke-width="2.5" stroke-linecap="round" />
+                <circle cx="204" cy="94" r="7.5" fill="#4d7c0f" />
+                <path d="M204 86C207 78 212 76 216 77" stroke="#ecfccb" stroke-width="2.5" stroke-linecap="round" />
+
+                <!-- Brown Chana Sprouts -->
+                <circle cx="128" cy="104" r="8.5" fill="#92400e" />
+                <path d="M128 95C127 87 132 84 135 83" stroke="#fef3c7" stroke-width="2.2" stroke-linecap="round" />
+                <circle cx="182" cy="104" r="8.5" fill="#92400e" />
+                <path d="M182 95C184 87 189 84 192 84" stroke="#fef3c7" stroke-width="2.2" stroke-linecap="round" />
+
+                <!-- Diced Cucumber -->
+                <circle cx="88" cy="108" r="10" fill="#86efac" stroke="#15803d" stroke-width="2" />
+                <circle cx="232" cy="106" r="10" fill="#86efac" stroke="#15803d" stroke-width="2" />
+                <circle cx="166" cy="70" r="8.5" fill="#86efac" stroke="#15803d" stroke-width="2" />
+
+                <!-- Diced Tomato & Onion -->
+                <rect x="114" y="66" width="16" height="16" rx="4" transform="rotate(-10 114 66)" fill="#ef4444" />
+                <rect x="196" y="68" width="15" height="15" rx="4" transform="rotate(14 196 68)" fill="#dc2626" />
+                <path d="M140 108C144 102 152 102 156 108" stroke="#be185d" stroke-width="2.5" stroke-linecap="round" />
+
+                <!-- Fresh Herbs / Coriander Leaves -->
+                <path d="M76 84C72 76 78 70 84 72C84 78 81 82 76 84Z" fill="#16a34a" />
+                <path d="M244 82C248 74 242 68 236 70C236 76 239 80 244 82Z" fill="#16a34a" />
+
+                <!-- Juicy Lemon Wedge -->
+                <path d="M242 62C258 56 274 68 272 86L242 84Z" fill="#facc15" stroke="#ca8a04" stroke-width="2.2" />
+                <line x1="246" y1="81" x2="266" y2="68" stroke="#fef08a" stroke-width="1.5" />
+
+                <!-- Bowl Body -->
+                <path d="M52 114H288L258 182C254 191 245 196 235 196H105C95 196 86 191 82 182L52 114Z" fill="#2f5d3a" />
+                <rect x="46" y="106" width="248" height="10" rx="5" fill="#1e3f27" />
+
+                <!-- Bowl Emblem -->
+                <rect x="112" y="136" width="116" height="32" rx="10" fill="#faf6ee" />
+                <text x="170" y="156" text-anchor="middle" fill="#1e3f27" font-size="12" font-weight="800" font-family="Plus Jakarta Sans">MAHASPROUTS</text>
+              </svg>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2.5 text-center pt-3 border-t border-cream-200">
+              <div class="p-2.5 rounded-xl bg-white border border-cream-200">
+                <div class="mono-num text-sm font-extrabold text-forest-900">12g–16g</div>
+                <div class="text-[11px] text-gray-600 font-medium">Plant Protein</div>
+              </div>
+              <div class="p-2.5 rounded-xl bg-white border border-cream-200">
+                <div class="mono-num text-sm font-extrabold text-forest-900">20 Hrs</div>
+                <div class="text-[11px] text-gray-600 font-medium">Natural Sprout</div>
+              </div>
+              <div class="p-2.5 rounded-xl bg-white border border-cream-200">
+                <div class="mono-num text-sm font-extrabold text-forest-900">₹30 / ₹50</div>
+                <div class="text-[11px] text-gray-600 font-medium">Small &amp; Regular</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 3. ABOUT MAHASPROUTS, 4-STEP PROCESS & NUTRITION HIGHLIGHTS           -->
+    <!-- ===================================================================== -->
+    <section id="about" class="py-16 sm:py-20 max-w-6xl mx-auto px-4 sm:px-6 space-y-14">
+      <!-- About MahaSprouts -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-4">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-forest-800 bg-sage-100 px-3 py-1 rounded-full">
+            About MahaSprouts
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-forest-950 tracking-tight">
+            Why We Sprout Fresh Daily in Bengaluru Instead of Selling Pre-Packed Snacks
+          </h2>
+          <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+            Many ready-to-eat snacks in the market rely on day-old pre-cut veggies, heavy fried sev, or cold-chain packets that lose natural crunch and freshness. At <strong class="text-forest-900">MahaSprouts</strong>, we soak and sprout whole green moong and brown chana in clean, controlled daily batches tailored for our Bengaluru evening stall window.
+          </p>
+          <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+            Whether you are stepping out of an evening workout, wrapping up a busy workday, or picking up a light, nourishing snack for your family, you get crisp sprouts and fresh garden toppings tossed right before you eat.
+          </p>
+        </div>
+
+        <div class="lg:col-span-5 botanical-card rounded-3xl p-6 space-y-3.5">
+          <h3 class="text-base font-extrabold text-forest-950">What Makes Every MahaSprouts Bowl Special</h3>
+          <div class="flex items-start gap-3 text-xs sm:text-sm text-gray-700">
+            <span class="w-6 h-6 rounded-full bg-forest-100 text-forest-800 font-extrabold flex items-center justify-center shrink-0 mt-0.5">&#10003;</span>
+            <span><strong>Balanced Moong + Chana Blend:</strong> Combines tender green moong with earthy brown chana for rich texture and plant protein.</span>
+          </div>
+          <div class="flex items-start gap-3 text-xs sm:text-sm text-gray-700">
+            <span class="w-6 h-6 rounded-full bg-forest-100 text-forest-800 font-extrabold flex items-center justify-center shrink-0 mt-0.5">&#10003;</span>
+            <span><strong>Prepared for Evening Freshness:</strong> Batches are paced for our evening stall hours so bowls stay crisp and lively.</span>
+          </div>
+          <div class="flex items-start gap-3 text-xs sm:text-sm text-gray-700">
+            <span class="w-6 h-6 rounded-full bg-forest-100 text-forest-800 font-extrabold flex items-center justify-center shrink-0 mt-0.5">&#10003;</span>
+            <span><strong>Tuned to Your Taste:</strong> Enjoy classic masala chatpata tang, mild seasoning, or no-onion bowls on request.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4-Step Sprouting Process & Nutrition Highlights -->
+      <div id="process-nutrition" class="space-y-8 pt-2">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-wider text-forest-800 bg-sage-100 px-3 py-1 rounded-full">
+            20-Hour Natural Germination Workflow
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-forest-950 mt-2.5 tracking-tight">
+            From Whole Pulses to Crisp Bowl in Four Careful Steps
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- Step 01 -->
+          <div class="botanical-card rounded-2xl p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="mono-num text-xs font-extrabold px-2.5 py-1 rounded-lg bg-forest-800 text-white">01</span>
+                <span class="mono-num text-xs font-bold text-forest-800">8–10 hrs</span>
+              </div>
+              <h3 class="text-base font-extrabold text-forest-950">Clean &amp; Soak</h3>
+              <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+                Whole green moong and brown chana are washed and soaked in pure water for 8–10 hours to hydrate evenly and begin natural germination.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-cream-200 text-xs font-semibold text-forest-800">
+              Pure-Water Soak
+            </div>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="botanical-card rounded-2xl p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="mono-num text-xs font-extrabold px-2.5 py-1 rounded-lg bg-forest-800 text-white">02</span>
+                <span class="mono-num text-xs font-bold text-forest-800">~10 hrs</span>
+              </div>
+              <h3 class="text-base font-extrabold text-forest-950">Natural Cloth Germination</h3>
+              <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+                Drained grains rest inside a clean, breathable wet cloth for about 10 hours so fresh sprouts emerge naturally without shortcuts.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-cream-200 text-xs font-semibold text-forest-800">
+              Wet-Cloth Sprouting
+            </div>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="botanical-card rounded-2xl p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="mono-num text-xs font-extrabold px-2.5 py-1 rounded-lg bg-forest-800 text-white">03</span>
+                <span class="mono-num text-xs font-bold text-forest-800">Fresh Prep</span>
+              </div>
+              <h3 class="text-base font-extrabold text-forest-950">Fresh Chopping</h3>
+              <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+                Crisp cucumber, ripe tomato, and onion are freshly chopped alongside bright lemon wedges, chaat masala, and cracked black pepper.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-cream-200 text-xs font-semibold text-forest-800">
+              Veggies, Lemon &amp; Spices
+            </div>
+          </div>
+
+          <!-- Step 04 -->
+          <div class="botanical-card rounded-2xl p-5 flex flex-col justify-between border-forest-800/40">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="mono-num text-xs font-extrabold px-2.5 py-1 rounded-lg bg-citrus-500 text-forest-950">04</span>
+                <span class="mono-num text-xs font-bold text-citrus-600">At Stall</span>
+              </div>
+              <h3 class="text-base font-extrabold text-forest-950">Crisp Bowl Assembly</h3>
+              <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+                Tossed fresh to your spice preference at the stall and packed neatly into a clean cup with lid and spoon—ready for immediate enjoyment.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-cream-200 text-xs font-semibold text-forest-800">
+              Freshly Tossed to Order
+            </div>
+          </div>
+        </div>
+
+        <!-- Nutrition & Macro Summary Cards -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="rounded-2xl bg-forest-900 text-white p-5">
+            <div class="mono-num text-2xl font-extrabold text-citrus-400">~12g–16g</div>
+            <div class="text-sm font-bold mt-1">Plant Protein</div>
+            <p class="text-xs text-forest-100/80 mt-1">From natural moong &amp; chana sprouts per bowl</p>
+          </div>
+          <div class="rounded-2xl bg-white border border-cream-200 p-5">
+            <div class="mono-num text-2xl font-extrabold text-forest-900">~7g–10g</div>
+            <div class="text-sm font-bold text-forest-950 mt-1">Dietary Fiber</div>
+            <p class="text-xs text-gray-600 mt-1">Supports steady energy and healthy digestion</p>
+          </div>
+          <div class="rounded-2xl bg-white border border-cream-200 p-5">
+            <div class="mono-num text-2xl font-extrabold text-forest-900">~165–220</div>
+            <div class="text-sm font-bold text-forest-950 mt-1">Calories per Bowl</div>
+            <p class="text-xs text-gray-600 mt-1">Light, filling snack or post-workout bowl</p>
+          </div>
+          <div class="rounded-2xl bg-sage-100 border border-sage-200 p-5">
+            <div class="mono-num text-2xl font-extrabold text-forest-900">0g</div>
+            <div class="text-sm font-bold text-forest-950 mt-1">Added Oil or Preservatives</div>
+            <p class="text-xs text-forest-800 mt-1">Pure whole ingredients with zero deep-frying</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 4. MENU, 15-SMALL-CUP FITNESS PASS & INTERACTIVE PICKUP BUILDER      -->
+    <!-- ===================================================================== -->
+    <section id="menu-pass" class="py-16 sm:py-20 bg-cream-100/80 border-y border-cream-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-12">
+        <div class="max-w-2xl">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-forest-800 bg-sage-100 px-3 py-1 rounded-full">
+            Daily Menu &amp; Fitness Pass
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-forest-950 mt-2.5 tracking-tight">
+            Fresh Bowls &amp; Convenient 15-Cup Pass Options
+          </h2>
+          <p class="text-sm sm:text-base text-gray-600 mt-2">
+            Pick a single bowl for today or grab the 15-Small-Cup Fitness Pass if you visit regularly around your evening routine.
+          </p>
+        </div>
+
+        <!-- 3 Menu & Pass Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+          <!-- Small Power Cup (250 ml): ₹30 -->
+          <article class="botanical-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-xs font-bold px-3 py-1 rounded-full bg-sage-100 text-forest-900">
+                  250 ml Cup
+                </span>
+                <span class="mono-num text-2xl font-extrabold text-forest-950">₹30</span>
+              </div>
+              <h3 class="text-xl font-extrabold text-forest-950 mt-4">Small Power Cup</h3>
+              <p class="text-xs sm:text-sm text-gray-600 mt-1.5 leading-relaxed">
+                Balanced portion of sprouted moong &amp; chana with fresh veggies and spices—great for a light evening bite.
+              </p>
+              <ul class="mt-4 space-y-2 text-xs sm:text-sm text-gray-700">
+                <li class="flex items-center gap-2"><span class="text-forest-800 font-bold">&#10003;</span> Fresh sprouted green moong &amp; brown chana</li>
+                <li class="flex items-center gap-2"><span class="text-forest-800 font-bold">&#10003;</span> Diced cucumber, tomato, onion &amp; lemon</li>
+                <li class="flex items-center gap-2"><span class="text-forest-800 font-bold">&#10003;</span> Chaat masala &amp; black pepper (customizable)</li>
+              </ul>
+            </div>
+            <button type="button" onclick="quickAddItem('small')" class="mt-6 w-full py-3 rounded-xl bg-sage-100 hover:bg-forest-100 text-forest-950 font-bold text-sm transition-colors">
+              + Add Small Power Cup (₹30)
+            </button>
+          </article>
+
+          <!-- Regular Bowl (350 ml): ₹50 -->
+          <article class="botanical-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between border-2 border-forest-800">
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-xs font-bold px-3 py-1 rounded-full bg-forest-800 text-white">
+                  350 ml Bowl &bull; Generous
+                </span>
+                <span class="mono-num text-2xl font-extrabold text-forest-950">₹50</span>
+              </div>
+              <h3 class="text-xl font-extrabold text-forest-950 mt-4">Regular Bowl</h3>
+              <p class="text-xs sm:text-sm text-gray-600 mt-1.5 leading-relaxed">
+                Generous high-protein portion of sprouted moong &amp; chana with extra crunch and toppings for post-workout recovery.
+              </p>
+              <ul class="mt-4 space-y-2 text-xs sm:text-sm text-gray-700">
+                <li class="flex items-center gap-2"><span class="text-forest-800 font-bold">&#10003;</span> Extra sprouted moong &amp; chana portion</li>
+                <li class="flex items-center gap-2"><span class="text-forest-800 font-bold">&#10003;</span> Extra crunch veggies, lemon &amp; seasoning</li>
+                <li class="flex items-center gap-2"><span class="text-forest-800 font-bold">&#10003;</span> Filling evening snack or light meal</li>
+              </ul>
+            </div>
+            <button type="button" onclick="quickAddItem('regular')" class="mt-6 w-full py-3 rounded-xl bg-forest-800 hover:bg-forest-900 text-white font-bold text-sm shadow-sm transition-colors">
+              + Add Regular Bowl (₹50)
+            </button>
+          </article>
+
+          <!-- 15-Small-Cup Fitness Pass: ₹399 -->
+          <article class="rounded-3xl p-6 sm:p-7 flex flex-col justify-between bg-forest-900 text-white shadow-xl border border-forest-800">
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-xs font-extrabold px-3 py-1 rounded-full bg-citrus-500 text-forest-950">
+                  Regular Visitor Pass
+                </span>
+                <span class="mono-num text-2xl font-extrabold text-white">₹399</span>
+              </div>
+              <h3 class="text-xl font-extrabold text-white mt-4">15-Small-Cup Fitness Pass</h3>
+              <p class="text-xs sm:text-sm text-forest-100/90 mt-1.5 leading-relaxed">
+                15 small sprout cups for regular visitors—convenient daily pickup without paying cup-by-cup every evening.
+              </p>
+              <ul class="mt-4 space-y-2 text-xs sm:text-sm text-forest-100">
+                <li class="flex items-start gap-2"><span class="text-citrus-400 font-bold">&#10003;</span> <span><strong>15 Small Power Cups (250 ml)</strong> included</span></li>
+                <li class="flex items-start gap-2"><span class="text-citrus-400 font-bold">&#10003;</span> <span>Redeem 1 cup per visit (or confirm with stall if taking extra)</span></li>
+                <li class="flex items-start gap-2"><span class="text-citrus-400 font-bold">&#10003;</span> <span><strong>Pass Tracking:</strong> Your remaining cup balance is logged by your name/pass ID at the stall; please confirm your remaining balance with us on WhatsApp or at pickup.</span></li>
+              </ul>
+            </div>
+            <button type="button" onclick="quickAddItem('pass')" class="mt-6 w-full py-3 rounded-xl bg-citrus-500 hover:bg-citrus-400 text-forest-950 font-extrabold text-sm shadow-md transition-colors">
+              + Add 15-Cup Fitness Pass (₹399)
+            </button>
+          </article>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- INTERACTIVE 'CUSTOMIZE & RESERVE YOUR PICKUP ORDER' BUILDER       -->
+        <!-- ================================================================= -->
+        <div id="reserve-pickup" class="pt-4">
+          <div class="mb-6">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-forest-800 bg-white border border-cream-200 px-3 py-1 rounded-full">
+              Interactive Pickup Builder
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-forest-950 mt-2.5 tracking-tight">
+              Customize &amp; Reserve Your Pickup Order
+            </h3>
+            <p class="text-sm text-gray-600 mt-1">
+              Build your order below, copy your pickup ticket, or send it directly to MahaSprouts on WhatsApp.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+            <!-- Left Builder Form (7 Columns) -->
+            <div class="lg:col-span-7 botanical-card rounded-3xl p-6 sm:p-7 space-y-6">
+              <!-- Quantities -->
+              <div>
+                <h4 class="text-xs font-extrabold uppercase tracking-wider text-forest-900 mb-3">1. Quantities &amp; Fitness Pass</h4>
+                <div class="space-y-3">
+                  <!-- Small Cup -->
+                  <div class="flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-cream-50 border border-cream-200">
+                    <div>
+                      <div class="font-bold text-sm text-forest-950">Small Cup (₹30)</div>
+                      <div class="text-xs text-gray-500">250 ml &bull; Sprouted moong &amp; chana bowl</div>
+                    </div>
+                    <div class="flex items-center gap-2.5">
+                      <button type="button" onclick="changeQty('small', -1)" aria-label="Decrease Small Cup quantity" class="w-9 h-9 rounded-xl bg-white border border-cream-200 font-bold text-lg text-forest-900 hover:bg-cream-100">&minus;</button>
+                      <span id="builder-qty-small" class="mono-num w-6 text-center font-extrabold text-base">1</span>
+                      <button type="button" onclick="changeQty('small', 1)" aria-label="Increase Small Cup quantity" class="w-9 h-9 rounded-xl bg-forest-800 text-white font-bold text-lg hover:bg-forest-900">+</button>
+                    </div>
+                  </div>
+
+                  <!-- Regular Cup -->
+                  <div class="flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-cream-50 border border-cream-200">
+                    <div>
+                      <div class="font-bold text-sm text-forest-950">Regular Cup (₹50)</div>
+                      <div class="text-xs text-gray-500">350 ml &bull; Generous high-protein bowl</div>
+                    </div>
+                    <div class="flex items-center gap-2.5">
+                      <button type="button" onclick="changeQty('regular', -1)" aria-label="Decrease Regular Cup quantity" class="w-9 h-9 rounded-xl bg-white border border-cream-200 font-bold text-lg text-forest-900 hover:bg-cream-100">&minus;</button>
+                      <span id="builder-qty-regular" class="mono-num w-6 text-center font-extrabold text-base">0</span>
+                      <button type="button" onclick="changeQty('regular', 1)" aria-label="Increase Regular Cup quantity" class="w-9 h-9 rounded-xl bg-forest-800 text-white font-bold text-lg hover:bg-forest-900">+</button>
+                    </div>
+                  </div>
+
+                  <!-- 15-Small-Cup Fitness Pass -->
+                  <div class="flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-sage-100/70 border border-sage-200">
+                    <div>
+                      <div class="font-bold text-sm text-forest-950">15-Small-Cup Fitness Pass (₹399)</div>
+                      <div class="text-xs text-forest-800">15 small cups for regular visitors</div>
+                    </div>
+                    <div class="flex items-center gap-2.5">
+                      <button type="button" onclick="changeQty('pass', -1)" aria-label="Decrease 15-Small-Cup Fitness Pass quantity" class="w-9 h-9 rounded-xl bg-white border border-sage-200 font-bold text-lg text-forest-900 hover:bg-cream-50">&minus;</button>
+                      <span id="builder-qty-pass" class="mono-num w-6 text-center font-extrabold text-base">0</span>
+                      <button type="button" onclick="changeQty('pass', 1)" aria-label="Increase 15-Small-Cup Fitness Pass quantity" class="w-9 h-9 rounded-xl bg-forest-800 text-white font-bold text-lg hover:bg-forest-900">+</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Optional Single Pass Redemption Toggle -->
+                <label class="mt-3 flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-cream-50 border border-cream-200 cursor-pointer">
+                  <div>
+                    <div class="text-xs sm:text-sm font-bold text-forest-950">Redeem 1 cup from an existing Fitness Pass</div>
+                    <div class="text-[11px] text-gray-500">Toggle on if you already hold a MahaSprouts 15-Small-Cup Fitness Pass</div>
+                  </div>
+                  <input type="checkbox" id="redeem-existing-pass" onchange="syncPassRedemptionToggle()" class="w-5 h-5 rounded accent-forest-800 cursor-pointer" />
+                </label>
+              </div>
+
+              <!-- Spice & Topping Preference Selector -->
+              <div>
+                <h4 class="text-xs font-extrabold uppercase tracking-wider text-forest-900 mb-3">2. Spice &amp; Topping Preference</h4>
+                <div id="spice-options" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  <button type="button" data-spice="Mild" onclick="setSpicePreference('Mild')" class="spice-choice px-3 py-2.5 rounded-xl text-xs font-bold border border-cream-200 bg-cream-50 text-gray-700 hover:border-forest-800">
+                    Mild
+                  </button>
+                  <button type="button" data-spice="Medium Masala" onclick="setSpicePreference('Medium Masala')" class="spice-choice px-3 py-2.5 rounded-xl text-xs font-bold border border-forest-800 bg-forest-800 text-white">
+                    Medium Masala
+                  </button>
+                  <button type="button" data-spice="Extra Tangy Lemon" onclick="setSpicePreference('Extra Tangy Lemon')" class="spice-choice px-3 py-2.5 rounded-xl text-xs font-bold border border-cream-200 bg-cream-50 text-gray-700 hover:border-forest-800">
+                    Extra Tangy Lemon
+                  </button>
+                  <button type="button" data-spice="No Onion" onclick="setSpicePreference('No Onion')" class="spice-choice px-3 py-2.5 rounded-xl text-xs font-bold border border-cream-200 bg-cream-50 text-gray-700 hover:border-forest-800">
+                    No Onion
+                  </button>
+                  <button type="button" data-spice="No Spice" onclick="setSpicePreference('No Spice')" class="spice-choice col-span-2 sm:col-span-2 px-3 py-2.5 rounded-xl text-xs font-bold border border-cream-200 bg-cream-50 text-gray-700 hover:border-forest-800">
+                    No Spice (Plain Sprouts &amp; Veggies)
+                  </button>
+                </div>
+              </div>
+
+              <!-- Pickup Time Slot & Payment Mode -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="pickup-slot-select" class="block text-xs font-extrabold uppercase tracking-wider text-forest-900 mb-1.5">3. Pickup Time Slot</label>
+                  <select id="pickup-slot-select" onchange="renderPickupTicket()" class="w-full px-3.5 py-2.5 rounded-xl border border-cream-200 bg-cream-50 text-sm font-semibold text-gray-800 focus:outline-none focus:border-forest-800">
+                    <option value="5:30 PM – 6:00 PM">5:30 PM – 6:00 PM</option>
+                    <option value="6:00 PM – 6:45 PM" selected>6:00 PM – 6:45 PM</option>
+                    <option value="6:45 PM – 7:30 PM">6:45 PM – 7:30 PM</option>
+                    <option value="7:30 PM – 8:30 PM">7:30 PM – 8:30 PM</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="payment-mode-select" class="block text-xs font-extrabold uppercase tracking-wider text-forest-900 mb-1.5">4. Payment Mode</label>
+                  <select id="payment-mode-select" onchange="syncPaymentModeChange()" class="w-full px-3.5 py-2.5 rounded-xl border border-cream-200 bg-cream-50 text-sm font-semibold text-gray-800 focus:outline-none focus:border-forest-800">
+                    <option value="UPI at Stall" selected>UPI at Stall</option>
+                    <option value="Cash at Stall">Cash at Stall</option>
+                    <option value="Fitness Pass Redemption">Fitness Pass Redemption</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- WhatsApp Business Contact Bar & Customer Name/Note -->
+              <div class="p-4 rounded-2xl bg-sage-100/60 border border-sage-200 space-y-3.5">
+                <div class="flex items-center justify-between gap-2 flex-wrap">
+                  <span class="text-xs font-extrabold uppercase tracking-wider text-forest-900">WhatsApp Business Contact &amp; Order Note</span>
+                  <span class="text-[11px] font-semibold text-forest-800 bg-white px-2.5 py-0.5 rounded-full border border-sage-200">
+                    Placeholder — Replace before going live
+                  </span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <div>
+                    <label for="wa-phone-input" class="block text-xs font-bold text-gray-700 mb-1">WhatsApp Business Number</label>
+                    <input type="tel" id="wa-phone-input" value="919800000000" oninput="handleWhatsAppInput(this.value)" placeholder="919800000000" class="w-full px-3.5 py-2 rounded-xl border border-cream-200 bg-white text-sm mono-num text-gray-900 focus:outline-none focus:border-forest-800" />
+                    <p class="text-[11px] text-gray-600 mt-1">
+                      Default placeholder: <code class="mono-num">919800000000</code>. Replace with your MahaSprouts WhatsApp Business number (country code + number).
+                    </p>
+                  </div>
+
+                  <div>
+                    <label for="customer-note-input" class="block text-xs font-bold text-gray-700 mb-1">Your Name / Pickup Note</label>
+                    <input type="text" id="customer-note-input" oninput="renderPickupTicket()" placeholder="e.g., Ananya — near park gate" class="w-full px-3.5 py-2 rounded-xl border border-cream-200 bg-white text-sm text-gray-900 focus:outline-none focus:border-forest-800" />
+                    <p class="text-[11px] text-gray-600 mt-1">
+                      Helps us hold your bowl or look up your Fitness Pass quickly at pickup.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Live Pickup Ticket Summary (5 Columns) -->
+            <div class="lg:col-span-5">
+              <div class="rounded-3xl bg-forest-950 text-white p-6 sm:p-7 shadow-xl border border-forest-800 lg:sticky lg:top-24">
+                <div class="flex items-center justify-between pb-4 border-b border-forest-800">
+                  <div>
+                    <span class="text-[11px] font-extrabold uppercase tracking-wider text-citrus-400">Live Pickup Ticket</span>
+                    <h4 class="text-lg font-extrabold text-white mt-0.5">MahaSprouts &bull; Bengaluru</h4>
+                  </div>
+                  <span id="ticket-code-label" class="mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-forest-800 text-forest-100">
+                    #MS-101
+                  </span>
+                </div>
+
+                <div id="pickup-ticket-details" class="py-4 space-y-2.5 text-xs sm:text-sm border-b border-dashed border-forest-700">
+                  <!-- Populated by JavaScript -->
+                </div>
+
+                <div class="py-4 flex items-center justify-between">
+                  <div>
+                    <span class="text-xs text-forest-100/75 block">Estimated Total</span>
+                    <span id="ticket-payment-label" class="text-xs font-bold text-citrus-400">UPI at Stall</span>
+                  </div>
+                  <div class="text-right">
+                    <span id="ticket-total-amount" class="mono-num text-2xl sm:text-3xl font-extrabold text-white">₹30</span>
+                  </div>
+                </div>
+
+                <div class="space-y-2.5 pt-1">
+                  <button type="button" onclick="copyPickupTicket()" class="w-full py-3 px-4 rounded-xl bg-citrus-500 hover:bg-citrus-400 text-forest-950 font-extrabold text-sm shadow-md transition-all">
+                    Copy Pickup Ticket
+                  </button>
+                  <a id="ticket-whatsapp-send-link" href="https://wa.me/919800000000" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl bg-forest-700 hover:bg-forest-600 text-white font-extrabold text-sm shadow-sm transition-all flex items-center justify-center gap-2">
+                    <span>Send Order on WhatsApp</span>
+                  </a>
+                </div>
+
+                <p class="text-[11px] text-forest-100/70 text-center mt-4">
+                  Show your copied ticket or send it on WhatsApp so your batch is ready for your pickup slot.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 5. BENGALURU STALL INFO, WHATSAPP BUSINESS CONTACT & INTERACTIVE FAQ  -->
+    <!-- ===================================================================== -->
+    <section id="faq" class="py-16 sm:py-20 max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <!-- Stall Info & WhatsApp Business Contact Card (6 Columns) -->
+        <div class="lg:col-span-6 space-y-6">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-forest-800 bg-sage-100 px-3 py-1 rounded-full">
+              Bengaluru Stall &amp; Contact
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-forest-950 mt-2.5 tracking-tight">
+              Evening Stall Hours &amp; WhatsApp Business
+            </h2>
+            <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+              We serve fresh evening batches in Bengaluru and stay available on WhatsApp Business for quick pre-orders, group bowl requests, and Fitness Pass support.
+            </p>
+          </div>
+
+          <!-- WhatsApp Business Contact Card -->
+          <div class="botanical-card rounded-3xl p-6 space-y-4">
+            <div class="flex items-center justify-between gap-2 flex-wrap">
+              <div>
+                <span class="text-[11px] font-extrabold uppercase tracking-wider text-forest-800">Direct Customer Desk</span>
+                <h3 class="text-lg font-extrabold text-forest-950">MahaSprouts WhatsApp Business</h3>
+              </div>
+              <span class="text-xs font-bold px-3 py-1 rounded-full bg-sage-100 text-forest-900">
+                5:30 PM – 8:30 PM
+              </span>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-cream-50 border border-cream-200 flex items-center justify-between gap-3 flex-wrap">
+              <div>
+                <div class="text-[11px] font-semibold text-gray-500">Active WhatsApp Business Line</div>
+                <div id="stall-wa-formatted" class="mono-num text-sm sm:text-base font-extrabold text-forest-950">+91 98000 00000</div>
+              </div>
+              <button type="button" onclick="copyWhatsAppLine()" class="px-3.5 py-2 rounded-xl bg-white hover:bg-cream-100 border border-cream-200 text-xs font-bold text-forest-900 transition-colors">
+                Copy Number
+              </button>
+            </div>
+
+            <div class="space-y-2 text-xs sm:text-sm text-gray-700">
+              <p><strong class="text-forest-950">Evening Batch Window:</strong> Open 5:30 PM – 8:30 PM daily, and served fresh until the day's prepared batch sells out.</p>
+              <p><strong class="text-forest-950">Payments &amp; Pass:</strong> UPI and Cash accepted at the stall; 15-Small-Cup Fitness Pass (₹399) tracked cleanly for repeat visitors.</p>
+            </div>
+
+            <a id="stall-wa-chat-btn" href="https://wa.me/919800000000" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded-xl bg-forest-800 hover:bg-forest-900 text-white font-bold text-sm text-center block transition-colors">
+              Message MahaSprouts on WhatsApp &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Interactive FAQ Accordion (6 Columns) -->
+        <div class="lg:col-span-6 space-y-4">
+          <h3 class="text-xl sm:text-2xl font-extrabold text-forest-950">Frequently Asked Questions</h3>
+          <div id="faq-container" class="space-y-3">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- 6. FOOTER                                                             -->
+  <!-- ===================================================================== -->
+  <footer class="bg-forest-950 text-forest-100 py-8 px-4 sm:px-6 text-xs">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="font-extrabold text-white text-sm">MahaSprouts &bull; Bengaluru</span>
+        <span class="text-forest-600">|</span>
+        <span>&copy; <span id="copyright-year">2026</span> MahaSprouts. All rights reserved.</span>
+      </div>
+      <div class="flex items-center gap-4 flex-wrap text-forest-100/80">
+        <span>Fresh Daily Sprout Bowls</span>
+        <span>&bull;</span>
+        <span>Ready for GitHub Pages</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // =========================================================================
+    // MAHASPROUTS CUSTOMER STATE & FAQ CONTENT
+    // =========================================================================
+    const DEFAULT_WA_NUMBER = '919800000000';
+
+    const state = {
+      whatsappNumber: DEFAULT_WA_NUMBER,
+      small: 1,
+      regular: 0,
+      pass: 0,
+      redeemPass: false,
+      spice: 'Medium Masala',
+      ticketCode: 'MS-' + Math.floor(100 + Math.random() * 900)
+    };
+
+    const FAQ_ITEMS = [
+      {
+        q: 'How fresh are MahaSprouts bowls, and how are they sprouted?',
+        a: 'Every batch is prepared fresh for our Bengaluru evening window using an 8–10 hour pure-water soak followed by ~10 hours of natural wet-cloth germination. We do not use artificial preservatives or added oil, and we serve our daily batch fresh until sold out.'
+      },
+      {
+        q: 'How should I store my sprout bowl if I take it home?',
+        a: 'Enjoy freshly tossed bowls right away for peak crunch. If taking a bowl home, keep it refrigerated and consume it within the same evening for best texture and freshness.'
+      },
+      {
+        q: 'Can I customize the spice level or ask for no onion?',
+        a: 'Yes! In the pickup builder above—or when ordering at the stall—you can pick Mild, Medium Masala, Extra Tangy Lemon, No Onion, or No Spice so your bowl matches your taste.'
+      },
+      {
+        q: 'How does the ₹399 15-Small-Cup Fitness Pass work?',
+        a: 'The ₹399 Fitness Pass gives you 15 Small Power Cups (250 ml) for regular visits. Your remaining cup balance is tracked by your name or pass ID at the stall—please confirm your remaining balance with us on WhatsApp or at pickup.'
+      },
+      {
+        q: 'Do I have to reserve ahead, or can I walk up to the stall?',
+        a: 'Walk-ins are always welcome during evening hours while stock lasts, and reserving a pickup slot via WhatsApp or copying a pickup ticket helps lock in your preferred time slot on busy evenings.'
+      }
+    ];
+
+    // =========================================================================
+    // TOAST HELPER (No alert() or confirm())
+    // =========================================================================
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'pointer-events-auto px-4 py-3 rounded-2xl bg-forest-950 text-white border border-forest-700 shadow-xl text-xs font-semibold flex items-center justify-between gap-3';
+      toast.innerHTML = `<span>${message}</span><button type="button" onclick="this.parentElement.remove()" class="text-forest-100 hover:text-white font-bold px-1">&times;</button>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        if (toast.parentElement) toast.remove();
+      }, 3600);
+    }
+
+    // =========================================================================
+    // NAVIGATION MENU HELPERS
+    // =========================================================================
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-nav-drawer');
+      const btn = document.getElementById('mobile-menu-toggle');
+      const isHidden = drawer.classList.contains('hidden');
+      drawer.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(isHidden));
+    }
+
+    function closeMobileMenu() {
+      const drawer = document.getElementById('mobile-nav-drawer');
+      const btn = document.getElementById('mobile-menu-toggle');
+      drawer.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
+    // =========================================================================
+    // WHATSAPP NUMBER FORMATTING & LINK SYNC
+    // =========================================================================
+    function sanitizeWhatsAppNumber(raw) {
+      const digits = String(raw || '').replace(/\D/g, '');
+      if (!digits) return DEFAULT_WA_NUMBER;
+      if (digits.length === 10) return '91' + digits;
+      return digits;
+    }
+
+    function formatPhonePretty(digits) {
+      if (digits.length === 12 && digits.startsWith('91')) {
+        return `+91 ${digits.slice(2, 7)} ${digits.slice(7)}`;
+      }
+      return `+${digits}`;
+    }
+
+    function handleWhatsAppInput(rawVal) {
+      state.whatsappNumber = sanitizeWhatsAppNumber(rawVal);
+      document.getElementById('stall-wa-formatted').textContent = formatPhonePretty(state.whatsappNumber);
+
+      const quickGreeting = encodeURIComponent('Hi MahaSprouts Bengaluru! I would like to reserve an evening sprout bowl / ask about the ₹399 15-Small-Cup Fitness Pass.');
+      const quickUrl = `https://wa.me/${state.whatsappNumber}?text=${quickGreeting}`;
+      document.getElementById('nav-whatsapp-btn').href = quickUrl;
+      document.getElementById('stall-wa-chat-btn').href = quickUrl;
+
+      renderPickupTicket();
+    }
+
+    function copyWhatsAppLine() {
+      const formatted = formatPhonePretty(state.whatsappNumber);
+      copyToClipboard(formatted, `Copied WhatsApp Business number: ${formatted}`);
+    }
+
+    // =========================================================================
+    // ORDER BUILDER & PICKUP TICKET LOGIC
+    // =========================================================================
+    function quickAddItem(type) {
+      changeQty(type, 1);
+      const builderEl = document.getElementById('reserve-pickup');
+      if (builderEl) builderEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      showToast('Added to your MahaSprouts pickup ticket.');
+    }
+
+    function changeQty(type, delta) {
+      const nextVal = Math.max(0, (state[type] || 0) + delta);
+      state[type] = nextVal;
+      document.getElementById(`builder-qty-${type}`).textContent = String(nextVal);
+      renderPickupTicket();
+    }
+
+    function setSpicePreference(spiceName) {
+      state.spice = spiceName;
+      document.querySelectorAll('.spice-choice').forEach(btn => {
+        const active = btn.dataset.spice === spiceName;
+        btn.className = active
+          ? 'spice-choice px-3 py-2.5 rounded-xl text-xs font-bold border border-forest-800 bg-forest-800 text-white' + (spiceName === 'No Spice' ? ' col-span-2 sm:col-span-2' : '')
+          : 'spice-choice px-3 py-2.5 rounded-xl text-xs font-bold border border-cream-200 bg-cream-50 text-gray-700 hover:border-forest-800' + (btn.dataset.spice === 'No Spice' ? ' col-span-2 sm:col-span-2' : '');
+      });
+      renderPickupTicket();
+    }
+
+    function syncPassRedemptionToggle() {
+      const checked = document.getElementById('redeem-existing-pass').checked;
+      state.redeemPass = checked;
+      const paymentSelect = document.getElementById('payment-mode-select');
+      if (checked) {
+        paymentSelect.value = 'Fitness Pass Redemption';
+      } else if (paymentSelect.value === 'Fitness Pass Redemption') {
+        paymentSelect.value = 'UPI at Stall';
+      }
+      renderPickupTicket();
+    }
+
+    function syncPaymentModeChange() {
+      const mode = document.getElementById('payment-mode-select').value;
+      const redeemBox = document.getElementById('redeem-existing-pass');
+      if (mode === 'Fitness Pass Redemption') {
+        redeemBox.checked = true;
+        state.redeemPass = true;
+      } else {
+        redeemBox.checked = false;
+        state.redeemPass = false;
+      }
+      renderPickupTicket();
+    }
+
+    function buildOrderMessage() {
+      const slot = document.getElementById('pickup-slot-select').value;
+      const payment = document.getElementById('payment-mode-select').value;
+      const note = document.getElementById('customer-note-input').value.trim() || 'Not specified';
+
+      const summaryParts = [];
+      if (state.small > 0) summaryParts.push(`${state.small}x Small Cup (₹${state.small * 30})`);
+      if (state.regular > 0) summaryParts.push(`${state.regular}x Regular Cup (₹${state.regular * 50})`);
+      if (state.pass > 0) summaryParts.push(`${state.pass}x 15-Small-Cup Fitness Pass (₹${state.pass * 399})`);
+
+      const subtotal = (state.small * 30) + (state.regular * 50) + (state.pass * 399);
+      const totalDisplay = state.redeemPass ? 'Fitness Pass Redemption' : `₹${subtotal}`;
+
+      const lines = [
+        `MahaSprouts Bengaluru — Pickup Ticket #${state.ticketCode}`,
+        `Items: ${summaryParts.length > 0 ? summaryParts.join(', ') : 'None selected yet'}`,
+        `Spice / Topping: ${state.spice}`,
+        `Pickup Slot: ${slot}`,
+        `Payment Mode: ${payment}`,
+        `Pass Redemption: ${state.redeemPass ? 'Yes (1 cup from existing pass)' : 'No'}`,
+        `Name / Note: ${note}`,
+        `Total: ${totalDisplay}`
+      ];
+
+      return {
+        hasItems: summaryParts.length > 0 || state.redeemPass,
+        subtotal,
+        totalDisplay,
+        payment,
+        slot,
+        note,
+        text: lines.join('\n')
+      };
+    }
+
+    function renderPickupTicket() {
+      const order = buildOrderMessage();
+      const totalCount = state.small + state.regular + state.pass + (state.redeemPass ? 1 : 0);
+
+      const badge = document.getElementById('nav-item-badge');
+      if (totalCount > 0) {
+        badge.textContent = String(totalCount);
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+
+      document.getElementById('ticket-code-label').textContent = `#${state.ticketCode}`;
+      document.getElementById('ticket-payment-label').textContent = order.payment;
+      document.getElementById('ticket-total-amount').textContent = order.totalDisplay;
+
+      const itemRows = [];
+      if (state.small > 0) {
+        itemRows.push(`<div class="flex justify-between"><span>${state.small}&times; Small Cup (250 ml)</span><span class="mono-num font-bold">₹${state.small * 30}</span></div>`);
+      }
+      if (state.regular > 0) {
+        itemRows.push(`<div class="flex justify-between"><span>${state.regular}&times; Regular Cup (350 ml)</span><span class="mono-num font-bold">₹${state.regular * 50}</span></div>`);
+      }
+      if (state.pass > 0) {
+        itemRows.push(`<div class="flex justify-between text-citrus-400"><span>${state.pass}&times; 15-Small-Cup Pass</span><span class="mono-num font-bold">₹${state.pass * 399}</span></div>`);
+      }
+      if (itemRows.length === 0) {
+        itemRows.push(`<div class="text-forest-100/65 italic">Select bowls or a pass on the left to build your ticket.</div>`);
+      }
+
+      document.getElementById('pickup-ticket-details').innerHTML = `
+        <div class="space-y-1.5">${itemRows.join('')}</div>
+        <div class="pt-2.5 border-t border-forest-800 space-y-1 text-xs text-forest-100/90">
+          <div><span class="text-forest-100/60">Spice / Topping:</span> <strong class="text-citrus-400">${state.spice}</strong></div>
+          <div><span class="text-forest-100/60">Pickup Slot:</span> <strong class="text-white">${order.slot}</strong></div>
+          <div><span class="text-forest-100/60">Pass Redemption:</span> <span>${state.redeemPass ? 'Yes — redeem 1 pass cup' : 'No'}</span></div>
+          <div><span class="text-forest-100/60">Name / Note:</span> <span>${order.note}</span></div>
+        </div>
+      `;
+
+      const encodedMsg = encodeURIComponent(order.text);
+      document.getElementById('ticket-whatsapp-send-link').href =
+        `https://wa.me/${state.whatsappNumber}?text=${encodedMsg}`;
+    }
+
+    function copyToClipboard(text, successMsg) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(successMsg);
+        }).catch(() => {
+          fallbackExecCopy(text, successMsg);
+        });
+      } else {
+        fallbackExecCopy(text, successMsg);
+      }
+    }
+
+    function fallbackExecCopy(text, successMsg) {
+      const helper = document.createElement('textarea');
+      helper.value = text;
+      helper.style.position = 'fixed';
+      helper.style.opacity = '0';
+      document.body.appendChild(helper);
+      helper.select();
+      try {
+        document.execCommand('copy');
+        showToast(successMsg);
+      } catch (err) {
+        showToast('Ready to copy from your pickup ticket.');
+      }
+      document.body.removeChild(helper);
+    }
+
+    function copyPickupTicket() {
+      const order = buildOrderMessage();
+      copyToClipboard(order.text, `Copied MahaSprouts Ticket #${state.ticketCode} to clipboard.`);
+    }
+
+    // =========================================================================
+    // FAQ ACCORDION RENDERING
+    // =========================================================================
+    function renderFaqAccordion() {
+      const container = document.getElementById('faq-container');
+      container.innerHTML = FAQ_ITEMS.map((item, index) => `
+        <div class="botanical-card rounded-2xl overflow-hidden">
+          <button type="button" onclick="toggleFaqItem(${index})" aria-expanded="false" aria-controls="faq-panel-${index}" class="w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-bold text-sm text-forest-950 hover:bg-cream-50 transition-colors">
+            <span>${item.q}</span>
+            <span id="faq-symbol-${index}" class="mono-num text-base font-extrabold text-forest-800 shrink-0">+</span>
+          </button>
+          <div id="faq-panel-${index}" class="hidden px-5 pb-4 pt-3 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-cream-200">
+            ${item.a}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleFaqItem(index) {
+      const panel = document.getElementById(`faq-panel-${index}`);
+      const symbol = document.getElementById(`faq-symbol-${index}`);
+      const willOpen = panel.classList.contains('hidden');
+      panel.classList.toggle('hidden');
+      symbol.textContent = willOpen ? '−' : '+';
+    }
+
+    // =========================================================================
+    // INITIALIZE ON PAGE LOAD
+    // =========================================================================
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('copyright-year').textContent = String(new Date().getFullYear());
+      renderFaqAccordion();
+      handleWhatsAppInput(document.getElementById('wa-phone-input').value);
+      renderPickupTicket();
+    });
+  </script>
+</body>
+</html>
