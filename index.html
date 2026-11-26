@@ -3,17 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Maha Sprouts Bengaluru — Fresh daily morning moong and chana sprout bowls (8:00 AM – 10:00 AM) beside Udupi Upahar, Kudlu Gate Metro Station. Custom toppings, no fixed masala mix, and ₹399 15-Small-Cup packs." />
+  <meta name="description" content="Maha Sprouts Bengaluru — Fresh daily morning moong and chana sprout bowls (8:00 AM – 10:00 AM) beside Udupi Upahar, Kudlu Gate Metro Station. Custom toppings, no fixed masala mix, Small ₹30, Regular ₹50, and 15/30-cup packs ₹399–₹1,299." />
   <meta name="theme-color" content="#2f5d3a" />
+
+  <!-- Open Graph & Twitter Meta Tags for WhatsApp Link Previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Maha Sprouts Bengaluru" />
+  <meta property="og:url" content="https://mahasprouts.in/" />
+  <meta property="og:title" content="Maha Sprouts • Kudlu Gate Metro (8–10 AM) — Fresh Sprout Bowls & Packs" />
+  <meta property="og:description" content="No fixed masala mix, made your way beside Udupi Upahar. Small ₹30 • Regular ₹50 • 15 Small ₹399 • 15 Regular ₹649 • 30 Small ₹799 • 30 Regular ₹1,299." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Maha Sprouts • Kudlu Gate Metro (8–10 AM)" />
+  <meta name="twitter:description" content="Fresh morning moong & chana sprout bowls with custom toppings. Small ₹30, Regular ₹50, Packs ₹399–₹1,299." />
+
   <title>Maha Sprouts • Bengaluru — Fresh Morning Bowls (8–10 AM)</title>
-  <!-- Tailwind CSS via CDN -->
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
   <script>
-    // Botanical green and warm cream palette for Maha Sprouts
     tailwind.config = {
       theme: {
         extend: {
@@ -48,7 +59,13 @@
       }
     };
   </script>
+
   <style>
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
     body {
       background-color: #faf6ee;
       color: #16291c;
@@ -71,29 +88,25 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col antialiased selection:bg-forest-100 selection:text-forest-900">
+<body class="min-h-screen flex flex-col antialiased selection:bg-forest-100 selection:text-forest-900 overflow-x-hidden">
 
-  <!-- Toast Notification Banner -->
   <div id="toast-container" aria-live="polite" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none px-4 sm:px-0"></div>
 
-  <!-- ===================================================================== -->
-  <!-- 1. STICKY HEADER                                                      -->
-  <!-- ===================================================================== -->
-  <header class="sticky top-0 z-40 bg-cream-50/95 backdrop-blur-md border-b border-cream-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
-      <a href="#" class="flex items-center gap-2.5 group shrink-0">
-        <div class="w-10 h-10 rounded-2xl bg-forest-800 text-forest-50 flex items-center justify-center shadow-sm group-hover:bg-forest-900 transition-colors">
-          <!-- Custom Sprout Emblem SVG -->
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <!-- 1. STICKY HEADER -->
+  <header class="sticky top-0 z-40 w-full max-w-full bg-cream-50/95 backdrop-blur-md border-b border-cream-200">
+    <div class="max-w-6xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-2">
+      <a href="#" class="flex items-center gap-2 group min-w-0">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-forest-800 text-forest-50 flex items-center justify-center shadow-sm group-hover:bg-forest-900 transition-colors shrink-0">
+          <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M7 20h10" />
             <path d="M12 20v-7" />
             <path d="M12 13c0-4.5-3.2-7-7-7 0 4.2 2.7 7 7 7z" />
             <path d="M12 11c0-4 3-6.5 7-6.5 0 3.8-2.6 6.5-7 6.5z" />
           </svg>
         </div>
-        <div class="flex items-center gap-2 flex-wrap">
-          <span class="font-extrabold text-base sm:text-lg tracking-tight text-forest-950">Maha Sprouts</span>
-          <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-sage-100 text-forest-800 border border-sage-200">
+        <div class="flex items-center gap-2 min-w-0">
+          <span class="font-extrabold text-sm sm:text-lg tracking-tight text-forest-950 truncate">Maha Sprouts</span>
+          <span class="hidden lg:inline-flex text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-sage-100 text-forest-800 border border-sage-200 whitespace-nowrap">
             8–10 AM &bull; Kudlu Gate
           </span>
         </div>
@@ -106,12 +119,12 @@
         <a href="#location" class="hover:text-forest-800 transition-colors">Location</a>
       </nav>
 
-      <div class="flex items-center gap-2">
-        <a id="nav-wa-link" href="https://wa.me/918799811744?text=Hi%20Maha%20Sprouts!%20I%20would%20like%20to%20order%20for%20the%208%E2%80%9310%20AM%20morning%20batch." target="_blank" rel="noopener noreferrer" class="px-3.5 sm:px-4 py-2.5 rounded-xl bg-forest-800 hover:bg-forest-900 text-white text-xs sm:text-sm font-bold shadow-sm transition-all inline-flex items-center gap-1.5 whitespace-nowrap">
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <a id="nav-wa-link" href="https://wa.me/918799811744?text=Hi%20Maha%20Sprouts!%20I%20would%20like%20to%20order%20for%20the%208%E2%80%9310%20AM%20morning%20batch%20beside%20Udupi%20Upahar%2C%20Kudlu%20Gate%20Metro." target="_blank" rel="noopener noreferrer" class="px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-forest-800 hover:bg-forest-900 text-white text-xs sm:text-sm font-bold shadow-sm transition-all inline-flex items-center gap-1.5 whitespace-nowrap">
           <span>WhatsApp Order</span>
           <span id="nav-badge" class="hidden mono-num px-1.5 py-0.5 text-[10px] rounded-full bg-citrus-500 text-forest-950 font-extrabold">0</span>
         </a>
-        <button id="mobile-menu-btn" type="button" onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="md:hidden p-2.5 rounded-xl border border-cream-200 bg-white text-forest-900">
+        <button id="mobile-menu-btn" type="button" onclick="toggleMobileMenu()" aria-label="Toggle Menu" aria-expanded="false" class="md:hidden p-2 rounded-xl border border-cream-200 bg-white text-forest-900 hover:bg-cream-100 shrink-0">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -120,200 +133,260 @@
     </div>
 
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-cream-200 px-4 py-3 space-y-1.5 text-sm font-semibold text-gray-700">
-      <a href="#about" onclick="closeMobileMenu()" class="block py-2 px-3 rounded-xl hover:bg-forest-50">About</a>
-      <a href="#menu" onclick="closeMobileMenu()" class="block py-2 px-3 rounded-xl hover:bg-forest-50">Menu &amp; Packs</a>
-      <a href="#order-builder" onclick="closeMobileMenu()" class="block py-2 px-3 rounded-xl hover:bg-forest-50">Custom Order</a>
-      <a href="#location" onclick="closeMobileMenu()" class="block py-2 px-3 rounded-xl hover:bg-forest-50">Location</a>
+      <a href="#about" onclick="closeMobileMenu()" class="block py-2.5 px-3 rounded-xl hover:bg-forest-50">About</a>
+      <a href="#menu" onclick="closeMobileMenu()" class="block py-2.5 px-3 rounded-xl hover:bg-forest-50">Menu &amp; Packs</a>
+      <a href="#order-builder" onclick="closeMobileMenu()" class="block py-2.5 px-3 rounded-xl hover:bg-forest-50">Custom Order</a>
+      <a href="#location" onclick="closeMobileMenu()" class="block py-2.5 px-3 rounded-xl hover:bg-forest-50">Location</a>
     </div>
   </header>
 
-  <main class="flex-1">
+  <main class="flex-1 w-full max-w-full overflow-x-hidden">
 
-    <!-- ===================================================================== -->
-    <!-- 2. HERO SECTION                                                       -->
-    <!-- ===================================================================== -->
-    <section class="botanical-hero text-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <div class="lg:col-span-7 space-y-5">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-900/75 border border-white/15 text-forest-100 text-xs font-bold">
-            <span class="w-2 h-2 rounded-full bg-citrus-400"></span>
+    <!-- 2. HERO SECTION -->
+    <section class="botanical-hero text-white w-full max-w-full overflow-hidden">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-5 min-w-0">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-forest-900/80 border border-white/15 text-forest-100 text-[11px] sm:text-xs font-bold max-w-full">
+            <span class="w-2 h-2 rounded-full bg-citrus-400 shrink-0"></span>
             <span>MAHA SPROUTS &bull; MORNING BATCH 8:00 AM – 10:00 AM</span>
           </div>
 
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15]">
+          <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15]">
             Fresh Morning Sprout Bowls Made Your Way — No Fixed Masala Mix
           </h1>
 
           <p class="text-sm sm:text-base text-forest-50/95 leading-relaxed max-w-2xl">
-            Start your morning at <strong class="text-white">Maha Sprouts</strong> with freshly sprouted moong &amp; chana bowls served around <strong class="text-citrus-400">8:00 AM – 10:00 AM</strong> beside <strong class="text-white">Udupi Upahar, Kudlu Gate Metro Station, Bengaluru</strong>. We have <strong class="text-white">no fixed masala mix</strong>—customize onions, spice, lemon, and seasonings to your exact requirement.
+            Freshly sprouted moong &amp; chana bowls served around <strong class="text-citrus-400">8:00 AM – 10:00 AM</strong> beside <strong class="text-white">Udupi Upahar, Kudlu Gate Metro Station, Bengaluru</strong>. Customize onions, lemon, salt, and spices to your taste.
           </p>
 
-          <div class="flex flex-wrap items-center gap-3 pt-1">
-            <a href="#order-builder" class="px-6 py-3.5 rounded-2xl bg-citrus-500 hover:bg-citrus-400 text-forest-950 font-extrabold text-sm sm:text-base shadow-lg transition-all">
+          <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-1">
+            <a href="#order-builder" class="px-6 py-3.5 rounded-2xl bg-citrus-500 hover:bg-citrus-400 text-forest-950 font-extrabold text-sm sm:text-base shadow-lg transition-all text-center">
               Customize &amp; Order on WhatsApp &rarr;
             </a>
-            <a href="#location" class="px-5 py-3.5 rounded-2xl bg-forest-900/75 hover:bg-forest-950 text-white border border-white/20 font-bold text-sm sm:text-base transition-all">
-              Kudlu Gate Metro Location
+            <a data-maps-link href="https://maps.app.goo.gl/jHEde22vSQfb6JPYA" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-2xl bg-forest-900/80 hover:bg-forest-950 text-white border border-white/20 font-bold text-sm sm:text-base transition-all text-center">
+              Open location
             </a>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs">
-            <div class="px-3.5 py-2.5 rounded-xl bg-forest-950/55 border border-white/15 font-bold">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2 text-xs">
+            <div class="px-3.5 py-2.5 rounded-xl bg-forest-950/60 border border-white/15 font-bold">
               8:00 AM – 10:00 AM Morning Batch
             </div>
-            <div class="px-3.5 py-2.5 rounded-xl bg-forest-950/55 border border-white/15 font-bold">
+            <div class="px-3.5 py-2.5 rounded-xl bg-forest-950/60 border border-white/15 font-bold">
               No Fixed Masala Mix &bull; Custom Toppings
             </div>
-            <div class="px-3.5 py-2.5 rounded-xl bg-forest-950/55 border border-white/15 font-bold">
+            <div class="px-3.5 py-2.5 rounded-xl bg-forest-950/60 border border-white/15 font-bold">
               Beside Udupi Upahar, Kudlu Gate Metro
             </div>
           </div>
         </div>
 
-        <!-- Clean Bowl Visual Card -->
-        <div class="lg:col-span-5">
-          <div class="rounded-3xl bg-cream-50 text-forest-950 p-6 shadow-2xl border border-cream-200">
-            <div class="flex items-center justify-between text-xs font-bold mb-2">
+        <!-- Quick Batch Summary Card -->
+        <div class="lg:col-span-5 min-w-0">
+          <div class="rounded-3xl bg-cream-50 text-forest-950 p-5 sm:p-6 shadow-2xl border border-cream-200 space-y-4">
+            <div class="flex items-center justify-between gap-2 text-xs font-bold">
               <span class="px-3 py-1 rounded-full bg-sage-100 text-forest-900">Morning Batch • 8–10 AM</span>
-              <span class="mono-num text-forest-800">₹30 • ₹50 • ₹399</span>
+              <span class="mono-num text-forest-800">₹30 • ₹50 • Packs</span>
             </div>
 
-            <div class="my-2 flex justify-center">
-              <svg class="w-60 h-44" viewBox="0 0 320 210" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Maha Sprouts bowl illustration">
-                <ellipse cx="160" cy="188" rx="108" ry="12" fill="#e3dac8" />
-                <path d="M58 106C64 58 112 40 160 40C208 40 256 58 262 106H58Z" fill="#dceee0" />
-                <circle cx="106" cy="88" r="8" fill="#4d7c0f" />
-                <path d="M106 80C104 71 109 68 113 67" stroke="#ecfccb" stroke-width="2.5" stroke-linecap="round" />
-                <circle cx="152" cy="80" r="7.5" fill="#65a30d" />
-                <path d="M152 72C154 64 160 62 164 63" stroke="#ecfccb" stroke-width="2.5" stroke-linecap="round" />
-                <circle cx="204" cy="86" r="7.5" fill="#4d7c0f" />
-                <circle cx="128" cy="96" r="8.5" fill="#92400e" />
-                <circle cx="182" cy="96" r="8.5" fill="#92400e" />
-                <rect x="114" y="60" width="15" height="15" rx="4" transform="rotate(-10 114 60)" fill="#ef4444" />
-                <rect x="196" y="62" width="14" height="14" rx="4" transform="rotate(14 196 62)" fill="#dc2626" />
-                <path d="M234 56C248 51 262 62 260 78L234 76Z" fill="#facc15" stroke="#ca8a04" stroke-width="2" />
-                <path d="M50 104H270L244 166C240 175 231 180 221 180H99C89 180 80 175 76 166L50 104Z" fill="#2f5d3a" />
-                <rect x="46" y="98" width="228" height="9" rx="4.5" fill="#1e3f27" />
-                <rect x="104" y="126" width="112" height="30" rx="9" fill="#faf6ee" />
-                <text x="160" y="145" text-anchor="middle" fill="#1e3f27" font-size="11" font-weight="800" font-family="Plus Jakarta Sans">MAHA SPROUTS</text>
-              </svg>
+            <div class="space-y-2.5">
+              <div class="p-3.5 rounded-2xl bg-white border border-cream-200 flex items-center justify-between">
+                <span class="text-sm font-bold text-forest-950">Small Cup (250 ml)</span>
+                <span class="mono-num text-lg font-extrabold text-forest-950">₹30</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white border border-cream-200 flex items-center justify-between">
+                <span class="text-sm font-bold text-forest-950">Regular Cup (350 ml)</span>
+                <span class="mono-num text-lg font-extrabold text-forest-950">₹50</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-sage-100 border border-sage-200 flex items-center justify-between">
+                <span class="text-sm font-bold text-forest-950">15 &amp; 30 Cup Packs</span>
+                <span class="mono-num text-sm font-extrabold text-forest-900">₹399 – ₹1,299</span>
+              </div>
             </div>
 
-            <div class="pt-3 border-t border-cream-200 flex items-center justify-between text-xs text-gray-700">
-              <span><strong>Custom Toppings:</strong> No Onion, Mild, Extra Lemon &amp; more</span>
-              <span class="font-bold text-forest-800">UPI / Cash</span>
+            <div class="pt-3 border-t border-cream-200 flex items-center justify-between gap-2 text-xs text-gray-700">
+              <span><strong>Custom Mix:</strong> Skip onion, add lemon &amp; spices as you like</span>
+              <span class="font-bold text-forest-800 shrink-0">8–10 AM</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================================================================== -->
-    <!-- 3. ABOUT & NO-FIXED-MASALA PROMISE                                    -->
-    <!-- ===================================================================== -->
-    <section id="about" class="py-12 sm:py-16 max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div class="clean-card rounded-2xl p-6">
-          <span class="text-xs font-extrabold uppercase tracking-wider text-forest-800">Morning Batch</span>
-          <h2 class="text-lg font-extrabold text-forest-950 mt-1.5">Served Around 8:00 AM – 10:00 AM</h2>
-          <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
-            Freshly soaked and naturally sprouted moong &amp; chana bowls prepared for your morning routine in Bengaluru.
-          </p>
-        </div>
+    <!-- 3. ABOUT SECTION -->
+    <section id="about" class="py-12 sm:py-16 max-w-6xl mx-auto px-4 sm:px-6 space-y-6">
+      <div class="max-w-2xl">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-forest-800 bg-sage-100 px-3 py-1 rounded-full">
+          About Maha Sprouts &bull; No Fixed Masala Mix
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-forest-950 mt-2">
+          Built for Rushed Mornings Around Kudlu Gate
+        </h2>
+        <p class="text-sm text-gray-600 mt-1.5 leading-relaxed">
+          No pre-mixed masala blend on the counter—tell us your exact onion, lemon, salt, or spice preference when you order.
+        </p>
+      </div>
 
-        <div class="clean-card rounded-2xl p-6 border-forest-800/40">
-          <span class="text-xs font-extrabold uppercase tracking-wider text-forest-800">Zero Pre-Mixed Spice</span>
-          <h2 class="text-lg font-extrabold text-forest-950 mt-1.5">No Fixed Masala Mix</h2>
-          <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
-            We do not dump a fixed masala blend onto every bowl. Tell us what you want—skip onions, keep it mild, or add lemon, chaat masala, or pepper.
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="clean-card rounded-3xl p-5 space-y-2">
+          <span class="text-[11px] font-extrabold uppercase tracking-wider text-forest-800">01 &bull; Custom Toppings</span>
+          <h3 class="text-base font-extrabold text-forest-950">No Fixed Masala Mix</h3>
+          <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+            Moong and chana sprouts paired with crisp veggies—choose no onion, extra lemon, or mild seasoning.
           </p>
-        </div>
+        </article>
 
-        <div class="clean-card rounded-2xl p-6">
-          <span class="text-xs font-extrabold uppercase tracking-wider text-forest-800">Easy Landmark</span>
-          <h2 class="text-lg font-extrabold text-forest-950 mt-1.5">Beside Udupi Upahar, Kudlu Gate</h2>
-          <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
-            Located right beside <strong>Udupi Upahar, Kudlu Gate Metro Station, Bengaluru</strong> for quick morning stops.
+        <article class="clean-card rounded-3xl p-5 space-y-2">
+          <span class="text-[11px] font-extrabold uppercase tracking-wider text-forest-800">02 &bull; Morning Window</span>
+          <h3 class="text-base font-extrabold text-forest-950">Fresh 8:00 AM – 10:00 AM Batch</h3>
+          <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+            Prepared every morning for commuters and fitness regulars in Bengaluru.
           </p>
-        </div>
+        </article>
+
+        <article class="clean-card rounded-3xl p-5 space-y-2">
+          <span class="text-[11px] font-extrabold uppercase tracking-wider text-forest-800">03 &bull; Stall Landmark</span>
+          <h3 class="text-base font-extrabold text-forest-950">Beside Udupi Upahar, Kudlu Gate Metro</h3>
+          <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+            Easy to spot right beside <strong>Udupi Upahar, Kudlu Gate Metro Station</strong>.
+          </p>
+        </article>
       </div>
     </section>
 
-    <!-- ===================================================================== -->
-    <!-- 4. MENU & SHORT 15-SMALL-CUP PLAN NAMES                             -->
-    <!-- ===================================================================== -->
+    <!-- 4. MENU, 4 SHORT-NAMED SUBSCRIPTION PLANS & 3-POINT RULES STRIP -->
     <section id="menu" class="py-12 sm:py-16 bg-cream-100/80 border-y border-cream-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-8">
         <div>
           <span class="text-xs font-extrabold uppercase tracking-wider text-forest-800 bg-sage-100 px-3 py-1 rounded-full">
-            Daily Menu &amp; 15-Cup Packs
+            Single Cups &amp; 4 Subscription Plans
           </span>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-forest-950 mt-2">
-            Bowls &amp; ₹399 15-Small-Cup Packs
+            Daily Cups (₹30 / ₹50) &amp; Subscription Packs
           </h2>
           <p class="text-sm text-gray-600 mt-1">
-            All bowls include 15 small cups per ₹399 pack (₹26.60/cup effective rate, saving ₹51 vs ₹450) with customizable toppings.
+            Every cup and pack is customized to order with zero fixed masala mix.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <!-- Small Cup -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div class="clean-card rounded-3xl p-6 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between">
+              <div class="flex items-center justify-between gap-2">
                 <span class="text-xs font-bold px-3 py-1 rounded-full bg-sage-100 text-forest-900">Small Cup (250 ml)</span>
                 <span class="mono-num text-2xl font-extrabold text-forest-950">₹30</span>
               </div>
-              <h3 class="text-lg font-extrabold text-forest-950 mt-3.5">Small Sprout Cup</h3>
-              <p class="text-xs sm:text-sm text-gray-600 mt-1.5">
+              <h3 class="text-lg font-extrabold text-forest-950 mt-3">Small Sprout Cup</h3>
+              <p class="text-xs sm:text-sm text-gray-600 mt-1">
                 Fresh moong &amp; chana sprouts customized with your choice of veggies, lemon, and spices.
               </p>
             </div>
-            <button type="button" onclick="addItemAndScroll('small')" class="mt-5 w-full py-3 rounded-xl bg-sage-100 hover:bg-forest-100 text-forest-950 font-bold text-sm transition-colors">
+            <button type="button" onclick="addCupAndScroll('small')" class="mt-5 w-full py-3 rounded-xl bg-sage-100 hover:bg-forest-100 text-forest-950 font-bold text-sm transition-colors">
               + Add Small Cup (₹30)
             </button>
           </div>
 
-          <!-- Regular Bowl -->
           <div class="clean-card rounded-3xl p-6 flex flex-col justify-between border-2 border-forest-800">
             <div>
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-bold px-3 py-1 rounded-full bg-forest-800 text-white">Regular Bowl (350 ml)</span>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-xs font-bold px-3 py-1 rounded-full bg-forest-800 text-white">Regular Cup (350 ml)</span>
                 <span class="mono-num text-2xl font-extrabold text-forest-950">₹50</span>
               </div>
-              <h3 class="text-lg font-extrabold text-forest-950 mt-3.5">Regular Sprout Bowl</h3>
-              <p class="text-xs sm:text-sm text-gray-600 mt-1.5">
-                Heartier morning portion of sprouted moong &amp; chana with custom toppings made to order.
+              <h3 class="text-lg font-extrabold text-forest-950 mt-3">Regular Sprout Cup</h3>
+              <p class="text-xs sm:text-sm text-gray-600 mt-1">
+                Heartier morning cup of moong &amp; chana sprouts with custom toppings made to order.
               </p>
             </div>
-            <button type="button" onclick="addItemAndScroll('regular')" class="mt-5 w-full py-3 rounded-xl bg-forest-800 hover:bg-forest-900 text-white font-bold text-sm transition-colors">
-              + Add Regular Bowl (₹50)
+            <button type="button" onclick="addCupAndScroll('regular')" class="mt-5 w-full py-3 rounded-xl bg-forest-800 hover:bg-forest-900 text-white font-bold text-sm transition-colors">
+              + Add Regular Cup (₹50)
             </button>
           </div>
+        </div>
 
-          <!-- Short-Named 15-Small-Cup Pack (₹399) -->
-          <div class="rounded-3xl p-6 flex flex-col justify-between bg-forest-900 text-white shadow-xl">
-            <div>
-              <div class="flex items-center justify-between gap-2">
-                <span class="text-xs font-extrabold px-3 py-1 rounded-full bg-citrus-500 text-forest-950">15 Small Cups &bull; Save ₹51</span>
-                <span class="mono-num text-2xl font-extrabold text-white">₹399</span>
+        <div class="space-y-4">
+          <div class="flex items-center justify-between gap-2 flex-wrap">
+            <h3 class="text-lg sm:text-xl font-extrabold text-forest-950">4 Subscription Plans</h3>
+            <span class="text-xs font-bold text-forest-800">15 Small • 15 Regular • 30 Small • 30 Regular</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="clean-card rounded-2xl p-5 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-sage-100 text-forest-900">Save ₹51</span>
+                  <span class="mono-num text-xl font-extrabold text-forest-950">₹399</span>
+                </div>
+                <h4 class="text-lg font-extrabold text-forest-950 mt-3">15 Small</h4>
+                <p class="text-xs text-gray-600 mt-1">15 Small Cups (₹26.60/cup vs ₹450)</p>
               </div>
-              <h3 class="text-lg font-extrabold text-white mt-3.5">15-Cup Morning Pack</h3>
-              <p class="text-xs sm:text-sm text-forest-100/90 mt-1.5">
-                15 Small Cups for ₹399 (₹26.60/cup). Choose your preferred short pack name in the order builder below.
-              </p>
+              <button type="button" onclick="selectPackAndScroll('15 Small')" class="mt-4 w-full py-2.5 rounded-xl bg-sage-100 hover:bg-forest-100 text-forest-950 font-bold text-xs sm:text-sm transition-colors">
+                Select 15 Small
+              </button>
             </div>
-            <button type="button" onclick="addItemAndScroll('pack')" class="mt-5 w-full py-3 rounded-xl bg-citrus-500 hover:bg-citrus-400 text-forest-950 font-extrabold text-sm transition-colors">
-              + Add 15-Cup Pack (₹399)
-            </button>
+
+            <div class="clean-card rounded-2xl p-5 flex flex-col justify-between border-forest-800/50">
+              <div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-sage-100 text-forest-900">Save ₹101</span>
+                  <span class="mono-num text-xl font-extrabold text-forest-950">₹649</span>
+                </div>
+                <h4 class="text-lg font-extrabold text-forest-950 mt-3">15 Regular</h4>
+                <p class="text-xs text-gray-600 mt-1">15 Regular Cups (₹43.27/cup vs ₹750)</p>
+              </div>
+              <button type="button" onclick="selectPackAndScroll('15 Regular')" class="mt-4 w-full py-2.5 rounded-xl bg-forest-800 hover:bg-forest-900 text-white font-bold text-xs sm:text-sm transition-colors">
+                Select 15 Regular
+              </button>
+            </div>
+
+            <div class="clean-card rounded-2xl p-5 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-sage-100 text-forest-900">Save ₹101</span>
+                  <span class="mono-num text-xl font-extrabold text-forest-950">₹799</span>
+                </div>
+                <h4 class="text-lg font-extrabold text-forest-950 mt-3">30 Small</h4>
+                <p class="text-xs text-gray-600 mt-1">30 Small Cups (₹26.63/cup vs ₹900)</p>
+              </div>
+              <button type="button" onclick="selectPackAndScroll('30 Small')" class="mt-4 w-full py-2.5 rounded-xl bg-sage-100 hover:bg-forest-100 text-forest-950 font-bold text-xs sm:text-sm transition-colors">
+                Select 30 Small
+              </button>
+            </div>
+
+            <div class="rounded-2xl p-5 flex flex-col justify-between bg-forest-900 text-white shadow-lg">
+              <div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-citrus-500 text-forest-950">Save ₹201</span>
+                  <span class="mono-num text-xl font-extrabold text-white">₹1,299</span>
+                </div>
+                <h4 class="text-lg font-extrabold text-white mt-3">30 Regular</h4>
+                <p class="text-xs text-forest-100/90 mt-1">30 Regular Cups (₹43.30/cup vs ₹1,500)</p>
+              </div>
+              <button type="button" onclick="selectPackAndScroll('30 Regular')" class="mt-4 w-full py-2.5 rounded-xl bg-citrus-500 hover:bg-citrus-400 text-forest-950 font-extrabold text-xs sm:text-sm transition-colors">
+                Select 30 Regular
+              </button>
+            </div>
+          </div>
+
+          <!-- 3-Point Pack Rules Strip -->
+          <div class="rounded-2xl bg-white border border-cream-200 px-4 py-3 grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs text-gray-700">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-forest-800 shrink-0"></span>
+              <span><strong>Flexible redemption</strong> (skip days anytime)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-forest-800 shrink-0"></span>
+              <span><strong>Valid for 45 days</strong> (or your preferred window)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-forest-800 shrink-0"></span>
+              <span><strong>Track by phone number</strong> at the stall</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================================================================== -->
-    <!-- 5. CUSTOM TOPPING & WHATSAPP ORDER BUILDER                          -->
-    <!-- ===================================================================== -->
+    <!-- 5. CUSTOM TOPPING & WHATSAPP ORDER BUILDER -->
     <section id="order-builder" class="py-12 sm:py-16 max-w-6xl mx-auto px-4 sm:px-6">
       <div class="mb-6">
         <span class="text-xs font-extrabold uppercase tracking-wider text-forest-800 bg-sage-100 px-3 py-1 rounded-full">
@@ -323,105 +396,101 @@
           Customize Your Bowl &amp; Order on WhatsApp
         </h2>
         <p class="text-sm text-gray-600 mt-1">
-          Select what you want on your bowl, choose a short 15-cup pack name if buying a pack, and send directly to Maha Sprouts on WhatsApp.
+          Build your cup or pack order, choose your toppings, pick an <strong>8:00 AM – 10:00 AM</strong> slot, and send on WhatsApp.
         </p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
-        <!-- Left Controls -->
-        <div class="lg:col-span-7 clean-card rounded-3xl p-6 space-y-6">
-          <!-- Quantities -->
+        <div class="lg:col-span-7 clean-card rounded-3xl p-5 sm:p-6 space-y-6">
           <div>
-            <h3 class="text-xs font-extrabold uppercase tracking-wider text-forest-900 mb-3">1. Select Items</h3>
-            <div class="space-y-3">
-              <div class="flex items-center justify-between p-3.5 rounded-2xl bg-cream-50 border border-cream-200">
+            <h3 class="text-xs font-extrabold uppercase tracking-wider text-forest-900 mb-3">1. Single Morning Cups</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-cream-50 border border-cream-200">
                 <div>
                   <div class="font-bold text-sm text-forest-950">Small Cup (₹30)</div>
-                  <div class="text-xs text-gray-500">250 ml morning sprout cup</div>
+                  <div class="text-xs text-gray-500">250 ml cup</div>
                 </div>
-                <div class="flex items-center gap-2.5">
-                  <button type="button" onclick="updateQty('small', -1)" aria-label="Decrease Small Cup" class="w-9 h-9 rounded-xl bg-white border border-cream-200 font-bold text-lg text-forest-900">&minus;</button>
+                <div class="flex items-center gap-2 shrink-0">
+                  <button type="button" onclick="updateCupQty('small', -1)" aria-label="Decrease Small Cup" class="w-9 h-9 rounded-xl bg-white border border-cream-200 font-bold text-lg text-forest-900">&minus;</button>
                   <span id="qty-small" class="mono-num w-6 text-center font-extrabold">1</span>
-                  <button type="button" onclick="updateQty('small', 1)" aria-label="Increase Small Cup" class="w-9 h-9 rounded-xl bg-forest-800 text-white font-bold text-lg">+</button>
+                  <button type="button" onclick="updateCupQty('small', 1)" aria-label="Increase Small Cup" class="w-9 h-9 rounded-xl bg-forest-800 text-white font-bold text-lg">+</button>
                 </div>
               </div>
 
-              <div class="flex items-center justify-between p-3.5 rounded-2xl bg-cream-50 border border-cream-200">
+              <div class="flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-cream-50 border border-cream-200">
                 <div>
-                  <div class="font-bold text-sm text-forest-950">Regular Bowl (₹50)</div>
-                  <div class="text-xs text-gray-500">350 ml morning sprout bowl</div>
+                  <div class="font-bold text-sm text-forest-950">Regular Cup (₹50)</div>
+                  <div class="text-xs text-gray-500">350 ml cup</div>
                 </div>
-                <div class="flex items-center gap-2.5">
-                  <button type="button" onclick="updateQty('regular', -1)" aria-label="Decrease Regular Bowl" class="w-9 h-9 rounded-xl bg-white border border-cream-200 font-bold text-lg text-forest-900">&minus;</button>
+                <div class="flex items-center gap-2 shrink-0">
+                  <button type="button" onclick="updateCupQty('regular', -1)" aria-label="Decrease Regular Cup" class="w-9 h-9 rounded-xl bg-white border border-cream-200 font-bold text-lg text-forest-900">&minus;</button>
                   <span id="qty-regular" class="mono-num w-6 text-center font-extrabold">0</span>
-                  <button type="button" onclick="updateQty('regular', 1)" aria-label="Increase Regular Bowl" class="w-9 h-9 rounded-xl bg-forest-800 text-white font-bold text-lg">+</button>
-                </div>
-              </div>
-
-              <div class="flex items-center justify-between p-3.5 rounded-2xl bg-sage-100/70 border border-sage-200">
-                <div>
-                  <div class="font-bold text-sm text-forest-950">15-Small-Cup Pack (₹399)</div>
-                  <div class="text-xs text-forest-800">15 small cups @ ₹26.60/cup (Save ₹51)</div>
-                </div>
-                <div class="flex items-center gap-2.5">
-                  <button type="button" onclick="updateQty('pack', -1)" aria-label="Decrease 15-Small-Cup Pack" class="w-9 h-9 rounded-xl bg-white border border-sage-200 font-bold text-lg text-forest-900">&minus;</button>
-                  <span id="qty-pack" class="mono-num w-6 text-center font-extrabold">0</span>
-                  <button type="button" onclick="updateQty('pack', 1)" aria-label="Increase 15-Small-Cup Pack" class="w-9 h-9 rounded-xl bg-forest-800 text-white font-bold text-lg">+</button>
+                  <button type="button" onclick="updateCupQty('regular', 1)" aria-label="Increase Regular Cup" class="w-9 h-9 rounded-xl bg-forest-800 text-white font-bold text-lg">+</button>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Short Pack Name Selector -->
           <div>
-            <label for="pack-name-select" class="block text-xs font-extrabold uppercase tracking-wider text-forest-900 mb-1.5">
-              2. Short Pack Name (for 15-Small-Cup ₹399 Pack)
-            </label>
-            <select id="pack-name-select" onchange="renderTicket()" class="w-full px-3.5 py-2.5 rounded-xl border border-cream-200 bg-cream-50 text-sm font-semibold text-gray-800 focus:outline-none focus:border-forest-800">
-              <option value="15-Cup Morning Pack" selected>15-Cup Morning Pack (₹399)</option>
-              <option value="15-Cup Starter Pack">15-Cup Starter Pack (₹399)</option>
-              <option value="15-Cup Daily Pack">15-Cup Daily Pack (₹399)</option>
-            </select>
+            <h3 class="text-xs font-extrabold uppercase tracking-wider text-forest-900 mb-3">2. Subscription Pack (Optional)</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-center p-3.5 rounded-2xl bg-sage-100/70 border border-sage-200">
+              <div class="sm:col-span-2">
+                <label for="pack-plan-select" class="block text-xs font-bold text-forest-950 mb-1">Choose Plan</label>
+                <select id="pack-plan-select" onchange="onPackPlanChange()" class="w-full px-3 py-2.5 rounded-xl border border-sage-200 bg-white text-sm font-bold text-gray-900 focus:outline-none focus:border-forest-800">
+                  <option value="none" selected>No Subscription Pack</option>
+                  <option value="15 Small">15 Small — ₹399 (15 Small Cups)</option>
+                  <option value="15 Regular">15 Regular — ₹649 (15 Regular Cups)</option>
+                  <option value="30 Small">30 Small — ₹799 (30 Small Cups)</option>
+                  <option value="30 Regular">30 Regular — ₹1,299 (30 Regular Cups)</option>
+                </select>
+              </div>
+              <div>
+                <span class="block text-xs font-bold text-forest-950 mb-1">Pack Qty</span>
+                <div class="flex items-center justify-between gap-2 bg-white px-2.5 py-1.5 rounded-xl border border-sage-200">
+                  <button type="button" onclick="updatePackQty(-1)" aria-label="Decrease Pack Quantity" class="w-8 h-8 rounded-lg bg-cream-50 border border-cream-200 font-bold text-base text-forest-900">&minus;</button>
+                  <span id="qty-pack" class="mono-num font-extrabold text-sm">0</span>
+                  <button type="button" onclick="updatePackQty(1)" aria-label="Increase Pack Quantity" class="w-8 h-8 rounded-lg bg-forest-800 text-white font-bold text-base">+</button>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <!-- Custom Toppings & Spice Requirements (No Fixed Masala Mix) -->
           <div>
-            <div class="flex items-center justify-between gap-2 mb-2">
+            <div class="flex items-center justify-between gap-2 flex-wrap mb-2">
               <h3 class="text-xs font-extrabold uppercase tracking-wider text-forest-900">3. Custom Toppings &amp; Spices (No Fixed Masala Mix)</h3>
               <span class="text-[11px] font-bold text-forest-800">Pick your exact mix</span>
             </div>
             <div id="custom-toppings-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-              <label class="flex items-center gap-2 p-2.5 rounded-xl bg-cream-50 border border-cream-200 text-xs font-bold text-gray-800 cursor-pointer">
+              <label class="flex items-center gap-2 p-3 rounded-xl bg-cream-50 border border-cream-200 text-xs font-bold text-gray-800 cursor-pointer">
                 <input type="checkbox" value="No Onion" onchange="renderTicket()" class="topping-cb w-4 h-4 rounded accent-forest-800" />
                 <span>No Onion</span>
               </label>
-              <label class="flex items-center gap-2 p-2.5 rounded-xl bg-cream-50 border border-cream-200 text-xs font-bold text-gray-800 cursor-pointer">
+              <label class="flex items-center gap-2 p-3 rounded-xl bg-cream-50 border border-cream-200 text-xs font-bold text-gray-800 cursor-pointer">
                 <input type="checkbox" value="Less Spicy" onchange="renderTicket()" class="topping-cb w-4 h-4 rounded accent-forest-800" />
                 <span>Less Spicy</span>
               </label>
-              <label class="flex items-center gap-2 p-2.5 rounded-xl bg-cream-50 border border-cream-200 text-xs font-bold text-gray-800 cursor-pointer">
+              <label class="flex items-center gap-2 p-3 rounded-xl bg-cream-50 border border-cream-200 text-xs font-bold text-gray-800 cursor-pointer">
                 <input type="checkbox" value="Extra Lemon" onchange="renderTicket()" class="topping-cb w-4 h-4 rounded accent-forest-800" />
                 <span>Extra Lemon</span>
               </label>
-              <label class="flex items-center gap-2 p-2.5 rounded-xl bg-cream-50 border border-cream-200 text-xs font-bold text-gray-800 cursor-pointer">
+              <label class="flex items-center gap-2 p-3 rounded-xl bg-cream-50 border border-cream-200 text-xs font-bold text-gray-800 cursor-pointer">
                 <input type="checkbox" value="Chaat Masala" onchange="renderTicket()" class="topping-cb w-4 h-4 rounded accent-forest-800" />
                 <span>Chaat Masala</span>
               </label>
-              <label class="flex items-center gap-2 p-2.5 rounded-xl bg-cream-50 border border-cream-200 text-xs font-bold text-gray-800 cursor-pointer">
+              <label class="flex items-center gap-2 p-3 rounded-xl bg-cream-50 border border-cream-200 text-xs font-bold text-gray-800 cursor-pointer">
                 <input type="checkbox" value="Black Pepper" onchange="renderTicket()" class="topping-cb w-4 h-4 rounded accent-forest-800" />
                 <span>Black Pepper</span>
               </label>
-              <label class="flex items-center gap-2 p-2.5 rounded-xl bg-cream-50 border border-cream-200 text-xs font-bold text-gray-800 cursor-pointer">
+              <label class="flex items-center gap-2 p-3 rounded-xl bg-cream-50 border border-cream-200 text-xs font-bold text-gray-800 cursor-pointer">
                 <input type="checkbox" value="Black Salt" onchange="renderTicket()" class="topping-cb w-4 h-4 rounded accent-forest-800" />
                 <span>Black Salt</span>
               </label>
             </div>
           </div>
 
-          <!-- Morning Slot & Custom Requirement Note -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label for="morning-slot" class="block text-xs font-extrabold uppercase tracking-wider text-forest-900 mb-1.5">4. Morning Pickup Time (8–10 AM)</label>
+              <label for="morning-slot" class="block text-xs font-extrabold uppercase tracking-wider text-forest-900 mb-1.5">4. Morning Pickup Slot (8:00 AM – 10:00 AM)</label>
               <select id="morning-slot" onchange="renderTicket()" class="w-full px-3.5 py-2.5 rounded-xl border border-cream-200 bg-cream-50 text-sm font-semibold text-gray-800 focus:outline-none focus:border-forest-800">
                 <option value="8:00 AM – 8:30 AM" selected>8:00 AM – 8:30 AM</option>
                 <option value="8:30 AM – 9:00 AM">8:30 AM – 9:00 AM</option>
@@ -431,15 +500,14 @@
             </div>
 
             <div>
-              <label for="custom-requirement" class="block text-xs font-extrabold uppercase tracking-wider text-forest-900 mb-1.5">5. Your Name &amp; Custom Note</label>
-              <input type="text" id="custom-requirement" oninput="renderTicket()" placeholder="e.g., Karthik — no tomato, light salt" class="w-full px-3.5 py-2.5 rounded-xl border border-cream-200 bg-cream-50 text-sm text-gray-900 focus:outline-none focus:border-forest-800" />
+              <label for="custom-requirement" class="block text-xs font-extrabold uppercase tracking-wider text-forest-900 mb-1.5">5. Your Name, Phone &amp; Custom Note</label>
+              <input type="text" id="custom-requirement" oninput="renderTicket()" placeholder="e.g., Karthik (98xxxxxxxx) — no onion, light salt" class="w-full px-3.5 py-2.5 rounded-xl border border-cream-200 bg-cream-50 text-sm text-gray-900 focus:outline-none focus:border-forest-800" />
             </div>
           </div>
         </div>
 
-        <!-- Right Ticket Summary -->
         <div class="lg:col-span-5">
-          <div class="rounded-3xl bg-forest-950 text-white p-6 shadow-xl border border-forest-800 lg:sticky lg:top-24">
+          <div class="rounded-3xl bg-forest-950 text-white p-5 sm:p-6 shadow-xl border border-forest-800 lg:sticky lg:top-24">
             <div class="flex items-center justify-between pb-3.5 border-b border-forest-800">
               <div>
                 <span class="text-[11px] font-extrabold uppercase tracking-wider text-citrus-400">Pickup Ticket</span>
@@ -456,7 +524,7 @@
             </div>
 
             <div class="space-y-2.5">
-              <a id="wa-send-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl bg-citrus-500 hover:bg-citrus-400 text-forest-950 font-extrabold text-sm shadow-md transition-all flex items-center justify-center">
+              <a id="wa-send-link" href="https://wa.me/918799811744" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl bg-citrus-500 hover:bg-citrus-400 text-forest-950 font-extrabold text-sm shadow-md transition-all flex items-center justify-center">
                 Send Order on WhatsApp &rarr;
               </a>
               <button type="button" onclick="copyTicket()" class="w-full py-3 px-4 rounded-xl bg-forest-800 hover:bg-forest-700 text-white border border-forest-700 font-bold text-xs sm:text-sm transition-colors">
@@ -468,46 +536,50 @@
       </div>
     </section>
 
-    <!-- ===================================================================== -->
-    <!-- 6. LOCATION & WHATSAPP BUSINESS CONTACT                               -->
-    <!-- ===================================================================== -->
-   <section id="location" class="py-12 sm:py-16 bg-cream-100/80 border-t border-cream-200">
+    <!-- 6. LOCATION & WHATSAPP BUSINESS CONTACT -->
+    <section id="location" class="py-12 sm:py-16 bg-cream-100/80 border-t border-cream-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="clean-card rounded-3xl p-6 space-y-3">
-          <span class="text-xs font-extrabold uppercase tracking-wider text-forest-800">Stall Location &amp; Hours</span>
-          <h2 class="text-xl font-extrabold text-forest-950">Beside Udupi Upahar, Kudlu Gate Metro Station</h2>
-          <p class="text-sm text-gray-700 leading-relaxed">
-            Visit <strong>Maha Sprouts</strong> in Bengaluru every morning around <strong>8:00 AM – 10:00 AM</strong> right beside <strong>Udupi Upahar, Kudlu Gate Metro Station</strong>.
-          </p>
-          <a
-            href="https://maps.app.goo.gl/jHEde22vSQfb6JPYA"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 text-sm font-bold text-forest-800 hover:text-forest-950 underline underline-offset-4"
-          >
-            Open in Google Maps
-          </a>
-        </div>
         <div class="clean-card rounded-3xl p-6 space-y-3 flex flex-col justify-between">
-          <div>
-            <span class="text-xs font-extrabold uppercase tracking-wider text-forest-800">WhatsApp Business</span>
-            <h2 class="text-xl font-extrabold text-forest-950 mt-1">Message Maha Sprouts Directly</h2>
-            <p class="text-sm text-gray-700 mt-1">
-              &bull; Share your custom toppings, no-onion requests, or 15-cup pack order.
+          <div class="space-y-2.5">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-forest-800">Stall Location &amp; Hours</span>
+            <h2 class="text-xl font-extrabold text-forest-950">Beside Udupi Upahar, Kudlu Gate Metro Station</h2>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              Open mornings around <strong>8:00 AM – 10:00 AM</strong> in Bengaluru right beside <strong>Udupi Upahar, Kudlu Gate Metro Station</strong>.
             </p>
           </div>
-          <a href="https://wa.me/918799811744?text=Hi%20Maha%20Sprouts!%20I%20want%20to%20check%20today%27s%208%E2%80%9310%20AM%20sprout%20bowls." target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center justify-center px-5 py-3 rounded-xl bg-forest-800 hover:bg-forest-900 text-white text-sm font-bold transition-colors">
-            Chat with Maha Sprouts on WhatsApp
-          </a>
+          <div class="pt-2">
+            <a
+              data-maps-link
+              href="https://maps.app.goo.gl/jHEde22vSQfb6JPYA"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center w-full sm:w-auto px-5 py-3 rounded-xl bg-sage-100 hover:bg-forest-100 text-forest-950 border border-sage-200 text-sm font-bold transition-colors"
+            >
+              Open location
+            </a>
+          </div>
+        </div>
+
+        <div class="clean-card rounded-3xl p-6 space-y-3 flex flex-col justify-between">
+          <div class="space-y-2.5">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-forest-800">WhatsApp Business</span>
+            <h2 class="text-xl font-extrabold text-forest-950">Message Maha Sprouts Directly</h2>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              Send custom topping notes, no-onion requests, or 15/30-cup pack orders before your morning pickup.
+            </p>
+          </div>
+          <div class="pt-2">
+            <a href="https://wa.me/918799811744?text=Hi%20Maha%20Sprouts!%20I%20want%20to%20check%20today%27s%208%E2%80%9310%20AM%20sprout%20bowls%20beside%20Udupi%20Upahar%2C%20Kudlu%20Gate%20Metro." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full sm:w-auto px-5 py-3 rounded-xl bg-forest-800 hover:bg-forest-900 text-white text-sm font-bold transition-colors">
+              Chat with Maha Sprouts on WhatsApp &rarr;
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ===================================================================== -->
-  <!-- 7. FOOTER                                                             -->
-  <!-- ===================================================================== -->
+  <!-- 7. FOOTER -->
   <footer class="bg-forest-950 text-forest-100 py-6 px-4 sm:px-6 text-xs">
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
       <div class="flex items-center gap-2 flex-wrap">
@@ -517,48 +589,128 @@
       </div>
       <div class="flex items-center gap-3 flex-wrap">
         <span>8:00 AM – 10:00 AM</span>
+        <span class="text-forest-700">|</span>
+        <a data-maps-link href="https://maps.app.goo.gl/jHEde22vSQfb6JPYA" target="_blank" rel="noopener noreferrer" class="text-citrus-400 hover:underline font-bold">Open location</a>
       </div>
     </div>
   </footer>
 
   <script>
     const WHATSAPP_NUMBER = '918799811744';
+    const MAPS_URL = 'https://maps.app.goo.gl/jHEde22vSQfb6JPYA';
+
+    const PACK_CATALOG = {
+      '15 Small':   { price: 399,  desc: '15 Small Cups' },
+      '15 Regular': { price: 649,  desc: '15 Regular Cups' },
+      '30 Small':   { price: 799,  desc: '30 Small Cups' },
+      '30 Regular': { price: 1299, desc: '30 Regular Cups' }
+    };
 
     const orderState = {
       small: 1,
       regular: 0,
-      pack: 0,
+      packQty: 0,
       ticketId: 'MS-' + Math.floor(200 + Math.random() * 799)
     };
 
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
     function showToast(msg) {
       const container = document.getElementById('toast-container');
+      if (!container) return;
       const el = document.createElement('div');
       el.className = 'pointer-events-auto px-4 py-3 rounded-2xl bg-forest-950 text-white border border-forest-700 shadow-lg text-xs font-semibold flex items-center justify-between gap-3';
-      el.innerHTML = `<span>${msg}</span><button type="button" onclick="this.parentElement.remove()" class="text-forest-100 font-bold">&times;</button>`;
+
+      const textSpan = document.createElement('span');
+      textSpan.textContent = msg;
+
+      const closeBtn = document.createElement('button');
+      closeBtn.type = 'button';
+      closeBtn.className = 'text-forest-100 font-bold';
+      closeBtn.innerHTML = '&times;';
+      closeBtn.addEventListener('click', () => el.remove());
+
+      el.appendChild(textSpan);
+      el.appendChild(closeBtn);
       container.appendChild(el);
-      setTimeout(() => { if (el.parentElement) el.remove(); }, 3400);
+      setTimeout(() => {
+        if (el.parentElement) el.remove();
+      }, 3400);
     }
 
     function toggleMobileMenu() {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
+      const menu = document.getElementById('mobile-menu');
+      const btn = document.getElementById('mobile-menu-btn');
+      const isHidden = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(isHidden));
     }
 
     function closeMobileMenu() {
-      document.getElementById('mobile-menu').classList.add('hidden');
+      const menu = document.getElementById('mobile-menu');
+      const btn = document.getElementById('mobile-menu-btn');
+      menu.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
     }
 
-    function addItemAndScroll(key) {
-      updateQty(key, 1);
+    function scrollToBuilder() {
       const target = document.getElementById('order-builder');
       if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      showToast('Added to your Maha Sprouts order ticket.');
     }
 
-    function updateQty(key, delta) {
+    function updateCupQty(key, delta) {
       orderState[key] = Math.max(0, (orderState[key] || 0) + delta);
       document.getElementById(`qty-${key}`).textContent = String(orderState[key]);
       renderTicket();
+    }
+
+    function addCupAndScroll(key) {
+      updateCupQty(key, 1);
+      scrollToBuilder();
+      showToast('Added cup to your Maha Sprouts order ticket.');
+    }
+
+    function onPackPlanChange() {
+      const selectEl = document.getElementById('pack-plan-select');
+      if (selectEl.value === 'none') {
+        orderState.packQty = 0;
+      } else if (orderState.packQty === 0) {
+        orderState.packQty = 1;
+      }
+      document.getElementById('qty-pack').textContent = String(orderState.packQty);
+      renderTicket();
+    }
+
+    function updatePackQty(delta) {
+      const selectEl = document.getElementById('pack-plan-select');
+      if (delta > 0 && selectEl.value === 'none') {
+        selectEl.value = '15 Small';
+      }
+      orderState.packQty = Math.max(0, orderState.packQty + delta);
+      if (orderState.packQty === 0) {
+        selectEl.value = 'none';
+      }
+      document.getElementById('qty-pack').textContent = String(orderState.packQty);
+      renderTicket();
+    }
+
+    function selectPackAndScroll(packName) {
+      const selectEl = document.getElementById('pack-plan-select');
+      selectEl.value = packName;
+      if (orderState.packQty === 0) {
+        orderState.packQty = 1;
+        document.getElementById('qty-pack').textContent = '1';
+      }
+      renderTicket();
+      scrollToBuilder();
+      showToast(`Selected ${packName} (₹${PACK_CATALOG[packName].price}).`);
     }
 
     function getSelectedToppings() {
@@ -566,17 +718,31 @@
     }
 
     function buildOrderMessage() {
-      const packName = document.getElementById('pack-name-select').value;
+      const packKey = document.getElementById('pack-plan-select').value;
       const slot = document.getElementById('morning-slot').value;
       const note = document.getElementById('custom-requirement').value.trim() || 'None';
       const toppings = getSelectedToppings();
 
       const items = [];
-      if (orderState.small > 0) items.push(`${orderState.small}x Small Cup (₹${orderState.small * 30})`);
-      if (orderState.regular > 0) items.push(`${orderState.regular}x Regular Bowl (₹${orderState.regular * 50})`);
-      if (orderState.pack > 0) items.push(`${orderState.pack}x ${packName} — 15 Small Cups (₹${orderState.pack * 399})`);
+      let total = 0;
 
-      const total = (orderState.small * 30) + (orderState.regular * 50) + (orderState.pack * 399);
+      if (orderState.small > 0) {
+        const sub = orderState.small * 30;
+        total += sub;
+        items.push(`${orderState.small}x Small Cup (₹${sub})`);
+      }
+      if (orderState.regular > 0) {
+        const sub = orderState.regular * 50;
+        total += sub;
+        items.push(`${orderState.regular}x Regular Cup (₹${sub})`);
+      }
+      if (packKey !== 'none' && orderState.packQty > 0 && PACK_CATALOG[packKey]) {
+        const packInfo = PACK_CATALOG[packKey];
+        const sub = orderState.packQty * packInfo.price;
+        total += sub;
+        items.push(`${orderState.packQty}x ${packKey} — ${packInfo.desc} (₹${sub})`);
+      }
+
       const customSummary = toppings.length > 0 ? toppings.join(', ') : 'Custom as noted (no fixed masala mix)';
 
       const text = [
@@ -584,20 +750,23 @@
         `Location: Beside Udupi Upahar, Kudlu Gate Metro Station, Bengaluru`,
         `Items: ${items.length > 0 ? items.join(' + ') : 'Custom inquiry'}`,
         `Custom Toppings: ${customSummary}`,
-        `Morning Slot: ${slot}`,
-        `Note / Name: ${note}`,
+        `Morning Slot (8–10 AM): ${slot}`,
+        `Name / Phone / Note: ${note}`,
         `Total: ₹${total}`
       ].join('\n');
 
-      return { items, total, slot, note, customSummary, text };
+      return { items, total, slot, note, customSummary, text, packKey };
     }
 
     function renderTicket() {
       const data = buildOrderMessage();
-      const count = orderState.small + orderState.regular + orderState.pack;
+      const packKey = document.getElementById('pack-plan-select').value;
+      const activePackCount = (packKey !== 'none') ? orderState.packQty : 0;
+      const badgeCount = orderState.small + orderState.regular + activePackCount;
+
       const badge = document.getElementById('nav-badge');
-      if (count > 0) {
-        badge.textContent = String(count);
+      if (badgeCount > 0) {
+        badge.textContent = String(badgeCount);
         badge.classList.remove('hidden');
       } else {
         badge.classList.add('hidden');
@@ -607,22 +776,26 @@
       document.getElementById('ticket-total').textContent = `₹${data.total}`;
 
       const itemLines = [];
-      if (orderState.small > 0) itemLines.push(`<div class="flex justify-between"><span>${orderState.small}&times; Small Cup</span><span class="mono-num font-bold">₹${orderState.small * 30}</span></div>`);
-      if (orderState.regular > 0) itemLines.push(`<div class="flex justify-between"><span>${orderState.regular}&times; Regular Bowl</span><span class="mono-num font-bold">₹${orderState.regular * 50}</span></div>`);
-      if (orderState.pack > 0) {
-        const pName = document.getElementById('pack-name-select').value;
-        itemLines.push(`<div class="flex justify-between text-citrus-400"><span>${orderState.pack}&times; ${pName}</span><span class="mono-num font-bold">₹${orderState.pack * 399}</span></div>`);
+      if (orderState.small > 0) {
+        itemLines.push(`<div class="flex justify-between gap-2"><span>${orderState.small}&times; Small Cup</span><span class="mono-num font-bold">₹${orderState.small * 30}</span></div>`);
+      }
+      if (orderState.regular > 0) {
+        itemLines.push(`<div class="flex justify-between gap-2"><span>${orderState.regular}&times; Regular Cup</span><span class="mono-num font-bold">₹${orderState.regular * 50}</span></div>`);
+      }
+      if (packKey !== 'none' && orderState.packQty > 0 && PACK_CATALOG[packKey]) {
+        const sub = orderState.packQty * PACK_CATALOG[packKey].price;
+        itemLines.push(`<div class="flex justify-between gap-2 text-citrus-400"><span>${orderState.packQty}&times; ${escapeHtml(packKey)}</span><span class="mono-num font-bold">₹${sub}</span></div>`);
       }
       if (itemLines.length === 0) {
-        itemLines.push(`<div class="text-forest-100/65 italic">Select items on the left to build your order.</div>`);
+        itemLines.push(`<div class="text-forest-100/65 italic">Select a cup or subscription pack on the left.</div>`);
       }
 
       document.getElementById('ticket-body').innerHTML = `
         <div class="space-y-1.5">${itemLines.join('')}</div>
         <div class="pt-2.5 border-t border-forest-800 space-y-1 text-xs text-forest-100/90">
-          <div><span class="text-forest-100/60">Custom Mix:</span> <strong class="text-citrus-400">${data.customSummary}</strong></div>
-          <div><span class="text-forest-100/60">Morning Slot:</span> <strong class="text-white">${data.slot}</strong></div>
-          <div><span class="text-forest-100/60">Name / Note:</span> <span>${data.note}</span></div>
+          <div><span class="text-forest-100/60">Custom Mix:</span> <strong class="text-citrus-400">${escapeHtml(data.customSummary)}</strong></div>
+          <div><span class="text-forest-100/60">Morning Slot:</span> <strong class="text-white">${escapeHtml(data.slot)}</strong></div>
+          <div><span class="text-forest-100/60">Name / Note:</span> <span>${escapeHtml(data.note)}</span></div>
           <div><span class="text-forest-100/60">Stall:</span> <span>Beside Udupi Upahar, Kudlu Gate Metro</span></div>
         </div>
       `;
@@ -631,24 +804,42 @@
         `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(data.text)}`;
     }
 
-    function copyTicket() {
-      const data = buildOrderMessage();
+    function fallbackExecCopy(text, successMsg) {
       const area = document.createElement('textarea');
-      area.value = data.text;
+      area.value = text;
       area.style.position = 'fixed';
       area.style.opacity = '0';
       document.body.appendChild(area);
       area.select();
       try {
         document.execCommand('copy');
-        showToast(`Copied Maha Sprouts ticket #${orderState.ticketId}.`);
+        showToast(successMsg);
       } catch (err) {
         showToast(`Ticket #${orderState.ticketId} ready.`);
       }
       document.body.removeChild(area);
     }
 
-    document.addEventListener('DOMContentLoaded', renderTicket);
+    function copyTicket() {
+      const data = buildOrderMessage();
+      const successMsg = `Copied Maha Sprouts ticket #${orderState.ticketId}.`;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(data.text).then(() => {
+          showToast(successMsg);
+        }).catch(() => {
+          fallbackExecCopy(data.text, successMsg);
+        });
+      } else {
+        fallbackExecCopy(data.text, successMsg);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[data-maps-link]').forEach(el => {
+        el.href = MAPS_URL;
+      });
+      renderTicket();
+    });
   </script>
 </body>
 </html>
